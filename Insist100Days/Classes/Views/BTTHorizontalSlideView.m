@@ -108,6 +108,7 @@
     NSLog(@"x: %.2f", toPoint.x);
     NSLog(@"y: %.2f", toPoint.y);
 
+
     [containerScrollView setContentOffset:toPoint animated:YES];
 }
 
