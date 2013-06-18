@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		75E91F8983CF424FA9B1CF96 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC1607FA7B34452A8AAB88B /* libPods.a */; settings = {}; };
 		C660B0CF1DCA7BF37D228946 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C660B303ED3C2ACB9EA44C32 /* InfoPlist.strings */; };
+		C660B39F00E15026B4580498 /* BTTDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B46AF96AF953919C497D /* BTTDateUtil.m */; };
 		C660B57D2105FF816EEEB806 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660BB569D5D5AB69E3E8ED9 /* UIKit.framework */; };
 		C660B824E342EFD91CB8DB53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660B29923C907735BFBFFBF /* Foundation.framework */; };
 		C660B8949D431BE108A70120 /* BTTIndexController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B9DA0E9669FC47A92CAA /* BTTIndexController.m */; };
@@ -19,6 +20,7 @@
 		C660BC5387605D92AC60FDCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B4FC1257C06D79DAB741 /* main.m */; };
 		C660BCBCA48FF7EDBC491414 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B598773E423E1080EFAD /* Default-568h@2x.png */; };
 		C660BE18D5AB6C4D2CAA524F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA1D03E29CB4E991BAFA /* Default@2x.png */; };
+		C660BF3EB3BFF887E090E299 /* BTTDatabaseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B4E477A27CE456CB3A01 /* BTTDatabaseUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,18 +29,24 @@
 		C660B12DC98AC04E87B3200D /* Insist100Days-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "Insist100Days-Info.plist"; sourceTree = "<group>"; };
 		C660B26693AFCCBDD9D64D6C /* Insist100Days-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Insist100Days-Prefix.pch"; sourceTree = "<group>"; };
 		C660B29923C907735BFBFFBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C660B46AF96AF953919C497D /* BTTDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTDateUtil.m; sourceTree = "<group>"; };
+		C660B4E477A27CE456CB3A01 /* BTTDatabaseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTDatabaseUtil.m; sourceTree = "<group>"; };
 		C660B4FC1257C06D79DAB741 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C660B589FB4516666B53DF80 /* BTTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTTAppDelegate.h; sourceTree = "<group>"; };
 		C660B598773E423E1080EFAD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C660B601C10C91BCD67E5320 /* Insist100Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insist100Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C660B6470C54F39724C84F0A /* BTTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTTAppDelegate.m; sourceTree = "<group>"; };
 		C660B6AD7291B2D5D4322790 /* BTTIndexController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTIndexController.h; sourceTree = "<group>"; };
+		C660B892C98E72CF88EBBD64 /* BTTDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTDateUtil.h; sourceTree = "<group>"; };
 		C660B9DA0E9669FC47A92CAA /* BTTIndexController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTIndexController.m; sourceTree = "<group>"; };
 		C660BA1D03E29CB4E991BAFA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C660BB30902D00877EBE5728 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C660BB4342E8EC5591135CA9 /* BTTHorizontalSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTHorizontalSlideView.m; sourceTree = "<group>"; };
 		C660BB569D5D5AB69E3E8ED9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C660BC8702F326502014AAC5 /* BTTDatabaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTDatabaseUtil.h; sourceTree = "<group>"; };
+		C660BD0EAF8881509AA0635A /* BTTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTConfig.h; sourceTree = "<group>"; };
 		C660BD550D3667D2F05C6C48 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C660BDEEF69F769644275DDF /* BTTLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTLogger.h; sourceTree = "<group>"; };
 		C660BF215A24703AB15457E4 /* BTTHorizontalSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTHorizontalSlideView.h; sourceTree = "<group>"; };
 		C660BF683EF87B401117F41A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -147,11 +155,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C660BD395B8EE12BC6E8FCB4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C660B4E477A27CE456CB3A01 /* BTTDatabaseUtil.m */,
+				C660BD0EAF8881509AA0635A /* BTTConfig.h */,
+				C660BC8702F326502014AAC5 /* BTTDatabaseUtil.h */,
+				C660B892C98E72CF88EBBD64 /* BTTDateUtil.h */,
+				C660B46AF96AF953919C497D /* BTTDateUtil.m */,
+				C660BDEEF69F769644275DDF /* BTTLogger.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C660BEBF930FF076177FA1AF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				C660B569FC804E928C39F376 /* Controllers */,
 				C660B848588E5E8BEE1945D3 /* Views */,
+				C660BD395B8EE12BC6E8FCB4 /* Utils */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -261,6 +283,8 @@
 				C660BC5387605D92AC60FDCA /* main.m in Sources */,
 				C660B8949D431BE108A70120 /* BTTIndexController.m in Sources */,
 				C660B90CB8FF0417C0E126FD /* BTTHorizontalSlideView.m in Sources */,
+				C660BF3EB3BFF887E090E299 /* BTTDatabaseUtil.m in Sources */,
+				C660B39F00E15026B4580498 /* BTTDateUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

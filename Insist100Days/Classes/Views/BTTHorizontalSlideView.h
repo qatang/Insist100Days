@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol BTTHorizontalSlideViewDelegate
+
+- (void)setupViewData:(NSInteger)selectedIndex countIndex:(NSInteger)countIndex;
+
+@end
 
 @interface BTTHorizontalSlideView : UIView
 
-- initWithView:(UIView *)current previous:(UIView *)previous next:(UIView *)next;
+@property (strong, nonatomic) id<BTTHorizontalSlideViewDelegate> delegate;
+
+- initWithView:(UIView *)current previous:(UIView *)previous next:(UIView *)next frame:(CGRect)frame;
 
 - (void)switchView:(UIView *)current previous:(UIView *)previous next:(UIView *)next;
 
