@@ -8,16 +8,31 @@
 
 #import "BTTAppDelegate.h"
 #import "BTTIndexController.h"
+#import "BTTDatabaseUtil.h"
+#import "BTTConfig.h"
 
 @implementation BTTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    FMDatabase *db = [[BTTDatabaseUtil shared]db];
+
+    int versionCurrent = [BTTDatabaseUtil schemaVersion:db];
+    if (versionCurrent == 0) {
+        [BTTDatabaseUtil initSchema:db];
+    } else {
+        [BTTDatabaseUtil migrateDB:db fromVersion:versionCurrent toVersion:BTT_DB_SCHEMA_VERSION];
+    }
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.rootViewController = [[BTTIndexController alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+    BTTIndexController *indexController = [[BTTIndexController alloc] init];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:indexController];
+    self.window.rootViewController = indexController;
+
     return YES;
 }
 

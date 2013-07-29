@@ -115,29 +115,29 @@
 {
     // allow migrations to fall thru switch cases to do a complete run
     // start with current version + 1
-	if (toVersion >= fromVersion) {
-		return;
+    if (toVersion >= fromVersion) {
+        return;
     }
-	NSInteger ver = fromVersion;
-	do {
-		ver++;
-		[db beginTransaction];
-		switch (ver) {
-			case 1:
+    NSInteger ver = fromVersion;
+    do {
+        ver++;
+        [db beginTransaction];
+        switch (ver) {
+            case 1:
 //				sqlite3_exec(db.sqliteHandle, [[NSString stringWithFormat:@"ALTER TABLE ln_notes ADD date_created INTEGER NOT NULL DEFAULT 0"] UTF8String], nil, nil, nil);
 //				sqlite3_exec(db.sqliteHandle, [[NSString stringWithFormat:@"ALTER TABLE ln_notes ADD date_updated INTEGER NOT NULL DEFAULT 0"] UTF8String], nil, nil, nil);
 
-				break;
-			case 2:
+                break;
+            case 2:
 //				sqlite3_exec(db.sqliteHandle, [[NSString stringWithFormat:@"ALTER TABLE ln_notes ADD latitude DOUBLE NOT NULL DEFAULT 0"] UTF8String], nil, nil, nil);
 //				sqlite3_exec(db.sqliteHandle, [[NSString stringWithFormat:@"ALTER TABLE ln_notes ADD longitude DOUBLE NOT NULL DEFAULT 0"] UTF8String], nil, nil, nil);
 
-				break;
-			default:
-				break;
-		}
-		[self setSchemaVersion:db version:ver];
-	} while ([db commit]);
+                break;
+            default:
+                break;
+        }
+        [self setSchemaVersion:db version:ver];
+    } while ([db commit]);
 }
 
 + (void)initSchema:(FMDatabase *)db
@@ -145,80 +145,32 @@
     [db beginTransaction];
 
     // create book table
-    [db executeUpdate:@"CREATE TABLE btt_book ( \
-     book_id INTEGER PRIMARY KEY AUTOINCREMENT, \
-     name VARCHAR(512) NOT NULL DEFAULT '', \
+    [db executeUpdate:@"CREATE TABLE btt_task ( \
+     task_id INTEGER PRIMARY KEY AUTOINCREMENT, \
+     title VARCHAR(20) NOT NULL DEFAULT '', \
      description VARCHAR(512), \
-     date_created INTEGER NOT NULL DEFAULT 0, \
-     date_updated INTEGER NOT NULL DEFAULT 0, \
-     begin_date INTEGER NOT NULL DEFAULT 0, \
-     end_date INTEGER NOT NULL DEFAULT 0, \
-     total_income DOUBLE NOT NULL DEFAULT 0,\
-     total_expenditure DOUBLE NOT NULL DEFAULT 0,\
-     total_balance DOUBLE NOT NULL DEFAULT 0,\
-     background_img VARCHAR(512),\
+     created_time INTEGER NOT NULL DEFAULT 0, \
+     updated_time INTEGER NOT NULL DEFAULT 0, \
+     begin_time INTEGER NOT NULL DEFAULT 0, \
+     end_time INTEGER NOT NULL DEFAULT 0, \
+     status INTEGER NOT NULL DEFAULT 0, \
      current INTEGER NOT NULL DEFAULT 0,\
-     status INTEGER NOT NULL DEFAULT 0 \
+     checked_days INTEGER NOT NULL DEFAULT 0,\
+     total_days INTEGER NOT NULL DEFAULT 0 \
 	 )"];
 
     // create book_item table
-    [db executeUpdate:@"CREATE TABLE btt_book_item ( \
-     book_item_id INTEGER PRIMARY KEY AUTOINCREMENT, \
-     book_id INTEGER NOT NULL DEFAULT 0, \
-     book_item_type INTEGER NOT NULL DEFAULT 0, \
-     content VARCHAR(512), \
-     date_created INTEGER NOT NULL DEFAULT 0, \
-     date_updated INTEGER NOT NULL DEFAULT 0, \
-     current_day INTEGER NOT NULL DEFAULT 0, \
-     consume_type INTEGER NOT NULL DEFAULT 0, \
-     settle_type INTEGER NOT NULL DEFAULT 0,\
-     amount DOUBLE NOT NULL DEFAULT 0,\
-     img VARCHAR(512),\
-     lbs VARCHAR(512),\
-     lat VARCHAR(512),\
-     lng VARCHAR(512),\
-     province VARCHAR(512),\
-     city VARCHAR(512),\
-     county VARCHAR(512),\
-     locked INTEGER NOT NULL DEFAULT 0\
+    [db executeUpdate:@"CREATE TABLE btt_task_item ( \
+     item_id INTEGER PRIMARY KEY AUTOINCREMENT, \
+     task_id INTEGER NOT NULL DEFAULT 0, \
+     memo VARCHAR(512), \
+     created_time INTEGER NOT NULL DEFAULT 0, \
+     updated_time INTEGER NOT NULL DEFAULT 0, \
+     checked INTEGER NOT NULL DEFAULT 0, \
+     currentDays INTEGER NOT NULL DEFAULT 0\
 	 )"];
 
-    // create book_item_detail table
-    [db executeUpdate:@"CREATE TABLE btt_book_item_detail ( \
-     book_item_detail_id INTEGER PRIMARY KEY AUTOINCREMENT, \
-     book_item_id INTEGER NOT NULL DEFAULT 0, \
-     member_id INTEGER NOT NULL DEFAULT 0, \
-     member_name VARCHAR(512), \
-     date_created INTEGER NOT NULL DEFAULT 0, \
-     date_updated INTEGER NOT NULL DEFAULT 0, \
-     amount DOUBLE NOT NULL DEFAULT 0\
-	 )"];
-
-    [db executeUpdate:@"CREATE TABLE btt_user ( \
-     user_id INTEGER PRIMARY KEY AUTOINCREMENT, \
-     name VARCHAR(512), \
-     avatar VARCHAR(512), \
-     role INTEGER NOT NULL DEFAULT 0, \
-     source INTEGER NOT NULL DEFAULT 0, \
-     source_nickname VARCHAR(512), \
-     source_account VARCHAR(512), \
-     date_created INTEGER NOT NULL DEFAULT 0, \
-     date_updated INTEGER NOT NULL DEFAULT 0 \
-	 )"];
-
-    [db executeUpdate:@"CREATE TABLE btt_book_user ( \
-     book_user_id INTEGER PRIMARY KEY AUTOINCREMENT, \
-     book_id INTEGER NOT NULL DEFAULT 0, \
-     user_id INTEGER NOT NULL DEFAULT 0, \
-     user_name VARCHAR(512) NOT NULL DEFAULT '', \
-     status INTEGER NOT NULL DEFAULT 0, \
-     amount DOUBLE NOT NULL DEFAULT 0,\
-     date_created INTEGER NOT NULL DEFAULT 0, \
-     date_updated INTEGER NOT NULL DEFAULT 0 \
-	 )"];
-
-	[self setSchemaVersion:db version:BTT_DB_SCHEMA_VERSION];
+    [self setSchemaVersion:db version:BTT_DB_SCHEMA_VERSION];
     [db commit];
 }
-
 @end

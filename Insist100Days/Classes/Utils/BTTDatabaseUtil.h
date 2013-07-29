@@ -11,6 +11,7 @@
 
 @interface BTTDatabaseUtil : NSObject
 
+
 @property (nonatomic, strong) FMDatabase *db;
 
 + (FMDatabase *)connectionFromDatabase;
@@ -23,6 +24,5 @@
 + (BOOL)dropTable:(NSString *)tableName;
 - (BOOL)establishConnection;
 - (BOOL)isTableExist:(NSString *)tableName;
-
 
 @end

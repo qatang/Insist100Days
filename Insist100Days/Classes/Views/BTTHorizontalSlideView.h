@@ -20,6 +20,6 @@
 
 - initWithView:(UIView *)current previous:(UIView *)previous next:(UIView *)next frame:(CGRect)frame;
 
-- (void)switchView:(UIView *)current previous:(UIView *)previous next:(UIView *)next;
+- (void)switchView:(UIView *)switchView;
 
 @end

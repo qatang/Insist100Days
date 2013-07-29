@@ -109,15 +109,15 @@
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
-                             nextView.center = currentViewStartCenter;
                              currentView.center = previousViewStartCenter;
-                             previousView.center = nextViewStartCenter;
+                             nextView.center = currentViewStartCenter;
+//                             previousView.center = nextViewStartCenter;
                              selectedIndex ++;
                              countIndex ++;
                          } else if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
-                             previousView.center = currentViewStartCenter;
                              currentView.center = nextViewStartCenter;
-                             nextView.center = previousViewStartCenter;
+                             previousView.center = currentViewStartCenter;
+//                             nextView.center = previousViewStartCenter;
                              selectedIndex --;
                              countIndex --;
                          }
@@ -154,19 +154,29 @@
 //
 //}
 
-- (void)switchView:(UIView *)current previous:(UIView *)previous next:(UIView *)next {
-    [self unbindRecognizer:currentView];
-    [self unbindRecognizer:previousView];
-    [self unbindRecognizer:nextView];
+- (void)switchView:(UIView *)switchView {
+    [self bindRecognizer:switchView];
+//    NSLog(@"before current tag : %d", currentView.tag);
+//    NSLog(@"before previous tag : %d", previousView.tag);
+//    NSLog(@"before next tag : %d", nextView.tag);
+//    NSLog(@"switch view tag : %d", switchView.tag);
+    if (selectedIndex > 0) {
+        previousView = currentView;
+        currentView = nextView;
+        switchView.center = CGPointMake(self.center.x + self.bounds.size.width, self.center.y);
+        nextView = switchView;
+    } else if (selectedIndex < 0) {
+        nextView = currentView;
+        currentView = previousView;
+        switchView.center = CGPointMake(self.center.x - self.bounds.size.width, self.center.y);
+        previousView = switchView;
+    }
 
-    currentView = current;
-    previousView = previous;
-    nextView = next;
+//    NSLog(@"after current tag : %d", currentView.tag);
+//    NSLog(@"after previous tag : %d", previousView.tag);
+//    NSLog(@"after next tag : %d", nextView.tag);
 
     selectedIndex = 0;
-
-    [self setupViews];
-    [self setupRecognizer];
 }
 
 //#pragma mark - UIGestureRecognizerDelegate method

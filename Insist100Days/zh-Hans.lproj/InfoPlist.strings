@@ -1,0 +1,4 @@
+/* Localized versions of Info.plist keys */
+
+CFBundleName = "坚持100天";
+CFBundleDisplayName = "坚持100天";

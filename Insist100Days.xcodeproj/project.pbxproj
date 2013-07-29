@@ -7,48 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		75E91F8983CF424FA9B1CF96 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC1607FA7B34452A8AAB88B /* libPods.a */; settings = {}; };
+		75E91F8983CF424FA9B1CF96 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC1607FA7B34452A8AAB88B /* libPods.a */; };
+		80EF385B1772A92600A28091 /* BTTIndexController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80EF385A1772A92600A28091 /* BTTIndexController.xib */; };
+		80EF385D1772DB0A00A28091 /* BTTSetupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80EF385C1772DB0A00A28091 /* BTTSetupController.xib */; };
+		80EF38641772E12A00A28091 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80EF38661772E12A00A28091 /* Localizable.strings */; };
+		80EF386C1772F74E00A28091 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80EF386B1772F74E00A28091 /* QuartzCore.framework */; };
 		C660B0CF1DCA7BF37D228946 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C660B303ED3C2ACB9EA44C32 /* InfoPlist.strings */; };
+		C660B0FD29576A796100812F /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B9594C1AD1CB993E545A /* setup.png */; };
+		C660B1274A8D0A725599D914 /* BTTTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B07269B45CA9736AA317 /* BTTTaskItem.m */; };
+		C660B30B60C0ABE23EC06357 /* setup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B46DAEA06EBDDB09E5BE /* setup@2x.png */; };
 		C660B39F00E15026B4580498 /* BTTDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B46AF96AF953919C497D /* BTTDateUtil.m */; };
+		C660B4A6D91D1EDA25496CCD /* BTTSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B9E8708AF574C2A00A49 /* BTTSetupController.m */; };
 		C660B57D2105FF816EEEB806 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660BB569D5D5AB69E3E8ED9 /* UIKit.framework */; };
 		C660B824E342EFD91CB8DB53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660B29923C907735BFBFFBF /* Foundation.framework */; };
 		C660B8949D431BE108A70120 /* BTTIndexController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B9DA0E9669FC47A92CAA /* BTTIndexController.m */; };
-		C660B8FDAAD6545A645F6272 /* BTTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B6470C54F39724C84F0A /* BTTAppDelegate.m */; };
 		C660B90CB8FF0417C0E126FD /* BTTHorizontalSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = C660BB4342E8EC5591135CA9 /* BTTHorizontalSlideView.m */; };
+		C660B9190216F93B54D52123 /* BTTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C660BE20CAB8F2FAFAAF23B3 /* BTTAppDelegate.m */; };
 		C660B9858531A007887F75EF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BD550D3667D2F05C6C48 /* Default.png */; };
+		C660BA1C2E8DBF9C4F450100 /* BTTTaskDao.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B39BFB29B5259F2D5F20 /* BTTTaskDao.m */; };
 		C660BB1C50B2118193772949 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660BF683EF87B401117F41A /* CoreGraphics.framework */; };
+		C660BC4D2CCF0B6E123BA0E3 /* BTTTaskItemDao.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B6C9A6D4929628342FAC /* BTTTaskItemDao.m */; };
 		C660BC5387605D92AC60FDCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B4FC1257C06D79DAB741 /* main.m */; };
 		C660BCBCA48FF7EDBC491414 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B598773E423E1080EFAD /* Default-568h@2x.png */; };
 		C660BE18D5AB6C4D2CAA524F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA1D03E29CB4E991BAFA /* Default@2x.png */; };
 		C660BF3EB3BFF887E090E299 /* BTTDatabaseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B4E477A27CE456CB3A01 /* BTTDatabaseUtil.m */; };
+		C660BF540017452BD5BF533A /* BTTTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B73C84950C0AFEB96908 /* BTTTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5AC1607FA7B34452A8AAB88B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libPods.a; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AC1607FA7B34452A8AAB88B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		80EF385A1772A92600A28091 /* BTTIndexController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BTTIndexController.xib; sourceTree = SOURCE_ROOT; };
+		80EF385C1772DB0A00A28091 /* BTTSetupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BTTSetupController.xib; sourceTree = SOURCE_ROOT; };
+		80EF38651772E12A00A28091 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		80EF38691772E18A00A28091 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		80EF386A1772E18A00A28091 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		80EF386B1772F74E00A28091 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8E1839146C294F5BA4AC5C5E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		C660B07269B45CA9736AA317 /* BTTTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskItem.m; sourceTree = "<group>"; };
 		C660B12DC98AC04E87B3200D /* Insist100Days-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "Insist100Days-Info.plist"; sourceTree = "<group>"; };
 		C660B26693AFCCBDD9D64D6C /* Insist100Days-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Insist100Days-Prefix.pch"; sourceTree = "<group>"; };
 		C660B29923C907735BFBFFBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C660B32D6A15B6061FB3B2DA /* BTTSetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTSetupController.h; sourceTree = "<group>"; };
+		C660B39BFB29B5259F2D5F20 /* BTTTaskDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskDao.m; sourceTree = "<group>"; };
 		C660B46AF96AF953919C497D /* BTTDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTDateUtil.m; sourceTree = "<group>"; };
+		C660B46DAEA06EBDDB09E5BE /* setup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setup@2x.png"; sourceTree = "<group>"; };
+		C660B4B1927678C7FE3DEA61 /* BTTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTAppDelegate.h; sourceTree = "<group>"; };
 		C660B4E477A27CE456CB3A01 /* BTTDatabaseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTDatabaseUtil.m; sourceTree = "<group>"; };
 		C660B4FC1257C06D79DAB741 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C660B589FB4516666B53DF80 /* BTTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTTAppDelegate.h; sourceTree = "<group>"; };
 		C660B598773E423E1080EFAD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C660B601C10C91BCD67E5320 /* Insist100Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insist100Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C660B6470C54F39724C84F0A /* BTTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTTAppDelegate.m; sourceTree = "<group>"; };
 		C660B6AD7291B2D5D4322790 /* BTTIndexController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTIndexController.h; sourceTree = "<group>"; };
+		C660B6C9A6D4929628342FAC /* BTTTaskItemDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskItemDao.m; sourceTree = "<group>"; };
+		C660B73C84950C0AFEB96908 /* BTTTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTask.m; sourceTree = "<group>"; };
+		C660B88D9F785DB7E5BA70B2 /* BTTEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTEnums.h; sourceTree = "<group>"; };
 		C660B892C98E72CF88EBBD64 /* BTTDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTDateUtil.h; sourceTree = "<group>"; };
+		C660B9594C1AD1CB993E545A /* setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setup.png; sourceTree = "<group>"; };
 		C660B9DA0E9669FC47A92CAA /* BTTIndexController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTIndexController.m; sourceTree = "<group>"; };
+		C660B9E8708AF574C2A00A49 /* BTTSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTSetupController.m; sourceTree = "<group>"; };
 		C660BA1D03E29CB4E991BAFA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C660BB30902D00877EBE5728 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C660BB4342E8EC5591135CA9 /* BTTHorizontalSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTHorizontalSlideView.m; sourceTree = "<group>"; };
 		C660BB569D5D5AB69E3E8ED9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C660BC8702F326502014AAC5 /* BTTDatabaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTDatabaseUtil.h; sourceTree = "<group>"; };
+		C660BCA23B6CDA17A54CE540 /* BTTTaskDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTTaskDao.h; sourceTree = "<group>"; };
 		C660BD0EAF8881509AA0635A /* BTTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTConfig.h; sourceTree = "<group>"; };
 		C660BD550D3667D2F05C6C48 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C660BD91757945F27D86A54A /* BTTTaskItemDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTTaskItemDao.h; sourceTree = "<group>"; };
 		C660BDEEF69F769644275DDF /* BTTLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTLogger.h; sourceTree = "<group>"; };
+		C660BE20CAB8F2FAFAAF23B3 /* BTTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTAppDelegate.m; sourceTree = "<group>"; };
 		C660BF215A24703AB15457E4 /* BTTHorizontalSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTHorizontalSlideView.h; sourceTree = "<group>"; };
 		C660BF683EF87B401117F41A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C660BF779766C2C181BF2A52 /* BTTTaskItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTTaskItem.h; sourceTree = "<group>"; };
+		C660BFDCC37F3D178807386D /* BTTTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTTask.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80EF386C1772F74E00A28091 /* QuartzCore.framework in Frameworks */,
 				C660B57D2105FF816EEEB806 /* UIKit.framework in Frameworks */,
 				C660B824E342EFD91CB8DB53 /* Foundation.framework in Frameworks */,
 				C660BB1C50B2118193772949 /* CoreGraphics.framework in Frameworks */,
@@ -66,11 +97,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80EF38611772E0B200A28091 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				80EF38661772E12A00A28091 /* Localizable.strings */,
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
 		C660B076C911CE06A9C6B3D8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				80EF38611772E0B200A28091 /* Localization */,
 				C660B64C87F94A63380885A4 /* Supporting Files */,
 				C660B851EA6A9796DE7771A4 /* Libraries */,
+				C660BFC192C8C77A3CFE976A /* Xibs */,
+				C660BEF2835D1492731BE615 /* Images */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -78,11 +120,31 @@
 		C660B084F3EF5245AA504612 = {
 			isa = PBXGroup;
 			children = (
+				80EF386B1772F74E00A28091 /* QuartzCore.framework */,
 				C660BAD7BDE67EEC6959B722 /* Products */,
 				C660B513C4B9168C74B03F6B /* Frameworks */,
 				C660B87111AC376C897802C1 /* Insist100Days */,
 				8E1839146C294F5BA4AC5C5E /* Pods.xcconfig */,
 			);
+			sourceTree = "<group>";
+		};
+		C660B318F5ED2969C07D26DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C660BF779766C2C181BF2A52 /* BTTTaskItem.h */,
+				C660BFDCC37F3D178807386D /* BTTTask.h */,
+				C660B73C84950C0AFEB96908 /* BTTTask.m */,
+				C660B07269B45CA9736AA317 /* BTTTaskItem.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C660B41E8DDD1779FEF30B14 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C660B88D9F785DB7E5BA70B2 /* BTTEnums.h */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		C660B513C4B9168C74B03F6B /* Frameworks */ = {
@@ -101,6 +163,8 @@
 			children = (
 				C660B9DA0E9669FC47A92CAA /* BTTIndexController.m */,
 				C660B6AD7291B2D5D4322790 /* BTTIndexController.h */,
+				C660B9E8708AF574C2A00A49 /* BTTSetupController.m */,
+				C660B32D6A15B6061FB3B2DA /* BTTSetupController.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -139,12 +203,21 @@
 		C660B87111AC376C897802C1 /* Insist100Days */ = {
 			isa = PBXGroup;
 			children = (
-				C660B589FB4516666B53DF80 /* BTTAppDelegate.h */,
-				C660B6470C54F39724C84F0A /* BTTAppDelegate.m */,
 				C660BEBF930FF076177FA1AF /* Classes */,
 				C660B076C911CE06A9C6B3D8 /* Resources */,
 			);
 			path = Insist100Days;
+			sourceTree = "<group>";
+		};
+		C660B9AA8DE71F154943F4E7 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				C660B6C9A6D4929628342FAC /* BTTTaskItemDao.m */,
+				C660B39BFB29B5259F2D5F20 /* BTTTaskDao.m */,
+				C660BCA23B6CDA17A54CE540 /* BTTTaskDao.h */,
+				C660BD91757945F27D86A54A /* BTTTaskItemDao.h */,
+			);
+			path = Dao;
 			sourceTree = "<group>";
 		};
 		C660BAD7BDE67EEC6959B722 /* Products */ = {
@@ -174,8 +247,31 @@
 				C660B569FC804E928C39F376 /* Controllers */,
 				C660B848588E5E8BEE1945D3 /* Views */,
 				C660BD395B8EE12BC6E8FCB4 /* Utils */,
+				C660B318F5ED2969C07D26DB /* Models */,
+				C660B9AA8DE71F154943F4E7 /* Dao */,
+				C660B41E8DDD1779FEF30B14 /* Constants */,
+				C660B4B1927678C7FE3DEA61 /* BTTAppDelegate.h */,
+				C660BE20CAB8F2FAFAAF23B3 /* BTTAppDelegate.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		C660BEF2835D1492731BE615 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C660B9594C1AD1CB993E545A /* setup.png */,
+				C660B46DAEA06EBDDB09E5BE /* setup@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C660BFC192C8C77A3CFE976A /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				80EF385A1772A92600A28091 /* BTTIndexController.xib */,
+				80EF385C1772DB0A00A28091 /* BTTSetupController.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,12 +310,11 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = C660B084F3EF5245AA504612;
 			productRefGroup = C660BAD7BDE67EEC6959B722 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				C660B43A62FE2A8745BD6852 /* Insist100Days */,
@@ -236,6 +331,11 @@
 				C660B9858531A007887F75EF /* Default.png in Resources */,
 				C660BE18D5AB6C4D2CAA524F /* Default@2x.png in Resources */,
 				C660BCBCA48FF7EDBC491414 /* Default-568h@2x.png in Resources */,
+				80EF385B1772A92600A28091 /* BTTIndexController.xib in Resources */,
+				C660B0FD29576A796100812F /* setup.png in Resources */,
+				C660B30B60C0ABE23EC06357 /* setup@2x.png in Resources */,
+				80EF385D1772DB0A00A28091 /* BTTSetupController.xib in Resources */,
+				80EF38641772E12A00A28091 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +355,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 1;
 		};
 		459825D6EDFD47009C16D625 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -270,7 +369,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 1;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -279,22 +377,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C660B8FDAAD6545A645F6272 /* BTTAppDelegate.m in Sources */,
 				C660BC5387605D92AC60FDCA /* main.m in Sources */,
 				C660B8949D431BE108A70120 /* BTTIndexController.m in Sources */,
 				C660B90CB8FF0417C0E126FD /* BTTHorizontalSlideView.m in Sources */,
 				C660BF3EB3BFF887E090E299 /* BTTDatabaseUtil.m in Sources */,
 				C660B39F00E15026B4580498 /* BTTDateUtil.m in Sources */,
+				C660BF540017452BD5BF533A /* BTTTask.m in Sources */,
+				C660B1274A8D0A725599D914 /* BTTTaskItem.m in Sources */,
+				C660BC4D2CCF0B6E123BA0E3 /* BTTTaskItemDao.m in Sources */,
+				C660BA1C2E8DBF9C4F450100 /* BTTTaskDao.m in Sources */,
+				C660B9190216F93B54D52123 /* BTTAppDelegate.m in Sources */,
+				C660B4A6D91D1EDA25496CCD /* BTTSetupController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		80EF38661772E12A00A28091 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80EF38651772E12A00A28091 /* en */,
+				80EF38691772E18A00A28091 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		C660B303ED3C2ACB9EA44C32 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C660BB30902D00877EBE5728 /* en */,
+				80EF386A1772E18A00A28091 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -392,6 +505,7 @@
 				C660B1F227A0D80B05796513 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C660BB587A5D820AAC534DE3 /* Build configuration list for PBXProject "Insist100Days" */ = {
 			isa = XCConfigurationList;
