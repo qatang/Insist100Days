@@ -15,23 +15,44 @@
 		C660B0CF1DCA7BF37D228946 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C660B303ED3C2ACB9EA44C32 /* InfoPlist.strings */; };
 		C660B0FD29576A796100812F /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B9594C1AD1CB993E545A /* setup.png */; };
 		C660B1274A8D0A725599D914 /* BTTTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B07269B45CA9736AA317 /* BTTTaskItem.m */; };
+		C660B265A56CDF9138E644DD /* payout_pen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BE7C3B5FF5F2AB119E20 /* payout_pen@2x.png */; };
+		C660B2CEB82CFAB53506D19C /* navbar-background-gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B2FAF3FA6B36E5B201C8 /* navbar-background-gray@2x.png */; };
 		C660B30B60C0ABE23EC06357 /* setup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B46DAEA06EBDDB09E5BE /* setup@2x.png */; };
 		C660B39F00E15026B4580498 /* BTTDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B46AF96AF953919C497D /* BTTDateUtil.m */; };
+		C660B39F135E847B613F8E0B /* payout_pen.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BCA3DFA7875F81D5B3B5 /* payout_pen.png */; };
+		C660B44AE4FFE70870C8C861 /* navbar-button-return-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BD7A5522B00EDF7E9D33 /* navbar-button-return-gray.png */; };
 		C660B4A6D91D1EDA25496CCD /* BTTSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B9E8708AF574C2A00A49 /* BTTSetupController.m */; };
 		C660B57D2105FF816EEEB806 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660BB569D5D5AB69E3E8ED9 /* UIKit.framework */; };
+		C660B591F16F65204A1133AB /* BTTCreateTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660BA87E73ED8B8BA1A20D7 /* BTTCreateTaskController.m */; };
+		C660B694DEAD39E2764273C8 /* textfield_label_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BF8A17F38BA39F56616D /* textfield_label_bg.png */; };
 		C660B824E342EFD91CB8DB53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660B29923C907735BFBFFBF /* Foundation.framework */; };
 		C660B8949D431BE108A70120 /* BTTIndexController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B9DA0E9669FC47A92CAA /* BTTIndexController.m */; };
+		C660B8AF96CCF79F731F80B9 /* navbar-button-return-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BC1DA3A02A374F79BC07 /* navbar-button-return-green@2x.png */; };
 		C660B90CB8FF0417C0E126FD /* BTTHorizontalSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = C660BB4342E8EC5591135CA9 /* BTTHorizontalSlideView.m */; };
 		C660B9190216F93B54D52123 /* BTTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C660BE20CAB8F2FAFAAF23B3 /* BTTAppDelegate.m */; };
+		C660B9214F030C720B57A089 /* textfield_label_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B9F84B9CE0D1D978CF6F /* textfield_label_bg@2x.png */; };
 		C660B9858531A007887F75EF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BD550D3667D2F05C6C48 /* Default.png */; };
+		C660B98F71CD4F3FB0469B05 /* BTTListTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B8A77D0BAA92BE7766B2 /* BTTListTaskController.m */; };
+		C660B9FA1B05D174243A8CD7 /* navbar-background-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BB743C8543A7B5D1EA51 /* navbar-background-gray.png */; };
 		C660BA1C2E8DBF9C4F450100 /* BTTTaskDao.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B39BFB29B5259F2D5F20 /* BTTTaskDao.m */; };
+		C660BA38F4C13B1E3DE64EDC /* navbar-button-done-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA1A128C55F75902EFB8 /* navbar-button-done-green@2x.png */; };
 		C660BB1C50B2118193772949 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660BF683EF87B401117F41A /* CoreGraphics.framework */; };
+		C660BB852F1F056DA2E3B466 /* navbar-button-return-green.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B2F0FB991303DE0C6550 /* navbar-button-return-green.png */; };
+		C660BB9F566CEDC5B47C20AF /* navbar-button-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BF6C548A872BD55974E7 /* navbar-button-menu.png */; };
+		C660BBFB761475E75FBF3056 /* navbar-button-menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BCF91E920BA7C6E4698B /* navbar-button-menu@2x.png */; };
+		C660BC2FFAAC53780A8C6E98 /* navbar-button-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B222509CCF444FDFA841 /* navbar-button-edit.png */; };
 		C660BC4D2CCF0B6E123BA0E3 /* BTTTaskItemDao.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B6C9A6D4929628342FAC /* BTTTaskItemDao.m */; };
 		C660BC5387605D92AC60FDCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B4FC1257C06D79DAB741 /* main.m */; };
+		C660BC6D5822D6FC707DAEF1 /* navbar-button-return-gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA33F4D814F15C653A7A /* navbar-button-return-gray@2x.png */; };
 		C660BCBCA48FF7EDBC491414 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B598773E423E1080EFAD /* Default-568h@2x.png */; };
+		C660BD952CF90BBBA23DABC6 /* navbar-button-edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B7EED4BE78D34E225FF1 /* navbar-button-edit@2x.png */; };
 		C660BE18D5AB6C4D2CAA524F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA1D03E29CB4E991BAFA /* Default@2x.png */; };
+		C660BF05897FD367D119F099 /* BTTUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B8EB9DB269941C797175 /* BTTUIViewController.m */; };
+		C660BF33CF6595AD937ECADC /* navbar-background-green.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BBB038CC6608CC792DC2 /* navbar-background-green.png */; };
 		C660BF3EB3BFF887E090E299 /* BTTDatabaseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B4E477A27CE456CB3A01 /* BTTDatabaseUtil.m */; };
+		C660BF503322D43852B16AB0 /* navbar-background-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BEB1DAD9534993E8B5DB /* navbar-background-green@2x.png */; };
 		C660BF540017452BD5BF533A /* BTTTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B73C84950C0AFEB96908 /* BTTTask.m */; };
+		C660BF56EB4C6A52D715DF02 /* navbar-button-done-green.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B3CA22C3A7B8D08B3543 /* navbar-button-done-green.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,10 +66,16 @@
 		8E1839146C294F5BA4AC5C5E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		C660B07269B45CA9736AA317 /* BTTTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskItem.m; sourceTree = "<group>"; };
 		C660B12DC98AC04E87B3200D /* Insist100Days-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "Insist100Days-Info.plist"; sourceTree = "<group>"; };
+		C660B222509CCF444FDFA841 /* navbar-button-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-edit.png"; sourceTree = "<group>"; };
 		C660B26693AFCCBDD9D64D6C /* Insist100Days-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Insist100Days-Prefix.pch"; sourceTree = "<group>"; };
 		C660B29923C907735BFBFFBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C660B2E876CA7F90126DD50F /* BTTListTaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTListTaskController.h; sourceTree = "<group>"; };
+		C660B2F0FB991303DE0C6550 /* navbar-button-return-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-return-green.png"; sourceTree = "<group>"; };
+		C660B2FAF3FA6B36E5B201C8 /* navbar-background-gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background-gray@2x.png"; sourceTree = "<group>"; };
 		C660B32D6A15B6061FB3B2DA /* BTTSetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTSetupController.h; sourceTree = "<group>"; };
 		C660B39BFB29B5259F2D5F20 /* BTTTaskDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskDao.m; sourceTree = "<group>"; };
+		C660B3CA22C3A7B8D08B3543 /* navbar-button-done-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-done-green.png"; sourceTree = "<group>"; };
+		C660B3CE8DA2B93598BF6828 /* BTTCreateTaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTCreateTaskController.h; sourceTree = "<group>"; };
 		C660B46AF96AF953919C497D /* BTTDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTDateUtil.m; sourceTree = "<group>"; };
 		C660B46DAEA06EBDDB09E5BE /* setup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setup@2x.png"; sourceTree = "<group>"; };
 		C660B4B1927678C7FE3DEA61 /* BTTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTAppDelegate.h; sourceTree = "<group>"; };
@@ -59,25 +86,43 @@
 		C660B6AD7291B2D5D4322790 /* BTTIndexController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTIndexController.h; sourceTree = "<group>"; };
 		C660B6C9A6D4929628342FAC /* BTTTaskItemDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskItemDao.m; sourceTree = "<group>"; };
 		C660B73C84950C0AFEB96908 /* BTTTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTask.m; sourceTree = "<group>"; };
+		C660B7B3F2123BF58267D37D /* BTTUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTUIViewController.h; sourceTree = "<group>"; };
+		C660B7EED4BE78D34E225FF1 /* navbar-button-edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-edit@2x.png"; sourceTree = "<group>"; };
 		C660B88D9F785DB7E5BA70B2 /* BTTEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTEnums.h; sourceTree = "<group>"; };
 		C660B892C98E72CF88EBBD64 /* BTTDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTDateUtil.h; sourceTree = "<group>"; };
+		C660B8A77D0BAA92BE7766B2 /* BTTListTaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTListTaskController.m; sourceTree = "<group>"; };
+		C660B8EB9DB269941C797175 /* BTTUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTUIViewController.m; sourceTree = "<group>"; };
 		C660B9594C1AD1CB993E545A /* setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setup.png; sourceTree = "<group>"; };
 		C660B9DA0E9669FC47A92CAA /* BTTIndexController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTIndexController.m; sourceTree = "<group>"; };
 		C660B9E8708AF574C2A00A49 /* BTTSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTSetupController.m; sourceTree = "<group>"; };
+		C660B9F84B9CE0D1D978CF6F /* textfield_label_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield_label_bg@2x.png"; sourceTree = "<group>"; };
+		C660BA1A128C55F75902EFB8 /* navbar-button-done-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-done-green@2x.png"; sourceTree = "<group>"; };
 		C660BA1D03E29CB4E991BAFA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C660BA33F4D814F15C653A7A /* navbar-button-return-gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-return-gray@2x.png"; sourceTree = "<group>"; };
+		C660BA87E73ED8B8BA1A20D7 /* BTTCreateTaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTCreateTaskController.m; sourceTree = "<group>"; };
 		C660BB30902D00877EBE5728 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C660BB4342E8EC5591135CA9 /* BTTHorizontalSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTHorizontalSlideView.m; sourceTree = "<group>"; };
 		C660BB569D5D5AB69E3E8ED9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C660BB743C8543A7B5D1EA51 /* navbar-background-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background-gray.png"; sourceTree = "<group>"; };
+		C660BBB038CC6608CC792DC2 /* navbar-background-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background-green.png"; sourceTree = "<group>"; };
+		C660BC1DA3A02A374F79BC07 /* navbar-button-return-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-return-green@2x.png"; sourceTree = "<group>"; };
 		C660BC8702F326502014AAC5 /* BTTDatabaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTDatabaseUtil.h; sourceTree = "<group>"; };
 		C660BCA23B6CDA17A54CE540 /* BTTTaskDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTTaskDao.h; sourceTree = "<group>"; };
+		C660BCA3DFA7875F81D5B3B5 /* payout_pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payout_pen.png; sourceTree = "<group>"; };
+		C660BCF91E920BA7C6E4698B /* navbar-button-menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-menu@2x.png"; sourceTree = "<group>"; };
 		C660BD0EAF8881509AA0635A /* BTTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTConfig.h; sourceTree = "<group>"; };
 		C660BD550D3667D2F05C6C48 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C660BD7A5522B00EDF7E9D33 /* navbar-button-return-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-return-gray.png"; sourceTree = "<group>"; };
 		C660BD91757945F27D86A54A /* BTTTaskItemDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTTaskItemDao.h; sourceTree = "<group>"; };
 		C660BDEEF69F769644275DDF /* BTTLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTLogger.h; sourceTree = "<group>"; };
 		C660BE20CAB8F2FAFAAF23B3 /* BTTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTAppDelegate.m; sourceTree = "<group>"; };
+		C660BE7C3B5FF5F2AB119E20 /* payout_pen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payout_pen@2x.png"; sourceTree = "<group>"; };
+		C660BEB1DAD9534993E8B5DB /* navbar-background-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background-green@2x.png"; sourceTree = "<group>"; };
 		C660BF215A24703AB15457E4 /* BTTHorizontalSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTHorizontalSlideView.h; sourceTree = "<group>"; };
 		C660BF683EF87B401117F41A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C660BF6C548A872BD55974E7 /* navbar-button-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-menu.png"; sourceTree = "<group>"; };
 		C660BF779766C2C181BF2A52 /* BTTTaskItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTTaskItem.h; sourceTree = "<group>"; };
+		C660BF8A17F38BA39F56616D /* textfield_label_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield_label_bg.png; sourceTree = "<group>"; };
 		C660BFDCC37F3D178807386D /* BTTTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTTask.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +210,12 @@
 				C660B6AD7291B2D5D4322790 /* BTTIndexController.h */,
 				C660B9E8708AF574C2A00A49 /* BTTSetupController.m */,
 				C660B32D6A15B6061FB3B2DA /* BTTSetupController.h */,
+				C660BA87E73ED8B8BA1A20D7 /* BTTCreateTaskController.m */,
+				C660B3CE8DA2B93598BF6828 /* BTTCreateTaskController.h */,
+				C660B8EB9DB269941C797175 /* BTTUIViewController.m */,
+				C660B7B3F2123BF58267D37D /* BTTUIViewController.h */,
+				C660B8A77D0BAA92BE7766B2 /* BTTListTaskController.m */,
+				C660B2E876CA7F90126DD50F /* BTTListTaskController.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,6 +271,27 @@
 			path = Dao;
 			sourceTree = "<group>";
 		};
+		C660BAAC5C233396246938FA /* navbar */ = {
+			isa = PBXGroup;
+			children = (
+				C660B222509CCF444FDFA841 /* navbar-button-edit.png */,
+				C660BF6C548A872BD55974E7 /* navbar-button-menu.png */,
+				C660B7EED4BE78D34E225FF1 /* navbar-button-edit@2x.png */,
+				C660BCF91E920BA7C6E4698B /* navbar-button-menu@2x.png */,
+				C660BB743C8543A7B5D1EA51 /* navbar-background-gray.png */,
+				C660BBB038CC6608CC792DC2 /* navbar-background-green.png */,
+				C660B3CA22C3A7B8D08B3543 /* navbar-button-done-green.png */,
+				C660B2FAF3FA6B36E5B201C8 /* navbar-background-gray@2x.png */,
+				C660BD7A5522B00EDF7E9D33 /* navbar-button-return-gray.png */,
+				C660BEB1DAD9534993E8B5DB /* navbar-background-green@2x.png */,
+				C660B2F0FB991303DE0C6550 /* navbar-button-return-green.png */,
+				C660BA1A128C55F75902EFB8 /* navbar-button-done-green@2x.png */,
+				C660BA33F4D814F15C653A7A /* navbar-button-return-gray@2x.png */,
+				C660BC1DA3A02A374F79BC07 /* navbar-button-return-green@2x.png */,
+			);
+			path = navbar;
+			sourceTree = "<group>";
+		};
 		C660BAD7BDE67EEC6959B722 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +333,11 @@
 			children = (
 				C660B9594C1AD1CB993E545A /* setup.png */,
 				C660B46DAEA06EBDDB09E5BE /* setup@2x.png */,
+				C660BF8A17F38BA39F56616D /* textfield_label_bg.png */,
+				C660B9F84B9CE0D1D978CF6F /* textfield_label_bg@2x.png */,
+				C660BE7C3B5FF5F2AB119E20 /* payout_pen@2x.png */,
+				C660BCA3DFA7875F81D5B3B5 /* payout_pen.png */,
+				C660BAAC5C233396246938FA /* navbar */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -336,6 +413,24 @@
 				C660B30B60C0ABE23EC06357 /* setup@2x.png in Resources */,
 				80EF385D1772DB0A00A28091 /* BTTSetupController.xib in Resources */,
 				80EF38641772E12A00A28091 /* Localizable.strings in Resources */,
+				C660B694DEAD39E2764273C8 /* textfield_label_bg.png in Resources */,
+				C660B9214F030C720B57A089 /* textfield_label_bg@2x.png in Resources */,
+				C660B265A56CDF9138E644DD /* payout_pen@2x.png in Resources */,
+				C660B39F135E847B613F8E0B /* payout_pen.png in Resources */,
+				C660BC2FFAAC53780A8C6E98 /* navbar-button-edit.png in Resources */,
+				C660BB9F566CEDC5B47C20AF /* navbar-button-menu.png in Resources */,
+				C660BD952CF90BBBA23DABC6 /* navbar-button-edit@2x.png in Resources */,
+				C660BBFB761475E75FBF3056 /* navbar-button-menu@2x.png in Resources */,
+				C660B9FA1B05D174243A8CD7 /* navbar-background-gray.png in Resources */,
+				C660BF33CF6595AD937ECADC /* navbar-background-green.png in Resources */,
+				C660BF56EB4C6A52D715DF02 /* navbar-button-done-green.png in Resources */,
+				C660B2CEB82CFAB53506D19C /* navbar-background-gray@2x.png in Resources */,
+				C660B44AE4FFE70870C8C861 /* navbar-button-return-gray.png in Resources */,
+				C660BF503322D43852B16AB0 /* navbar-background-green@2x.png in Resources */,
+				C660BB852F1F056DA2E3B466 /* navbar-button-return-green.png in Resources */,
+				C660BA38F4C13B1E3DE64EDC /* navbar-button-done-green@2x.png in Resources */,
+				C660BC6D5822D6FC707DAEF1 /* navbar-button-return-gray@2x.png in Resources */,
+				C660B8AF96CCF79F731F80B9 /* navbar-button-return-green@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +483,9 @@
 				C660BA1C2E8DBF9C4F450100 /* BTTTaskDao.m in Sources */,
 				C660B9190216F93B54D52123 /* BTTAppDelegate.m in Sources */,
 				C660B4A6D91D1EDA25496CCD /* BTTSetupController.m in Sources */,
+				C660B591F16F65204A1133AB /* BTTCreateTaskController.m in Sources */,
+				C660BF05897FD367D119F099 /* BTTUIViewController.m in Sources */,
+				C660B98F71CD4F3FB0469B05 /* BTTListTaskController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,8 @@
 
 
 #import "BTTSetupController.h"
+#import "BTTCreateTaskController.h"
+#import "BTTListTaskController.h"
 
 #define MENU_ITEM_HEIGHT 55
 
@@ -36,8 +38,8 @@ typedef NS_ENUM(NSUInteger, BTT_MENU_ITEM_INDEX)
 //    UIButton *rightBarButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 18)];
 //    [rightBarButton setTitle:NSLocalizedString(@"return", nil) forState:UIControlStateNormal];
 //    [rightBarButton addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchDown];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"return", nil) style:UIBarButtonItemStylePlain target:self action:@selector(dismissController)];
-    self.navigationItem.rightBarButtonItem.enabled = YES;
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"return", nil) style:UIBarButtonItemStylePlain target:self action:@selector(dismissController)];
+//    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
 - (void)dismissController {
@@ -69,13 +71,11 @@ typedef NS_ENUM(NSUInteger, BTT_MENU_ITEM_INDEX)
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case BTT_MENU_ITEM_CREATE_TASK: {
-//            [self.parentNavigationController pushViewController:[[BTTBookCreateViewController alloc] init] animated:true];
-//            [self.sidePanelController showCenterPanelAnimated:YES];
+            [self.navigationController pushViewController:[[BTTCreateTaskController alloc] init] animated:true];
             break;
         }
         case BTT_MENU_ITEM_MYTASK: {
-//            [self.parentNavigationController pushViewController:[[BTTBookListViewController alloc] init] animated:true];
-//            [self.sidePanelController showCenterPanelAnimated:YES];
+            [self.navigationController pushViewController:[[BTTListTaskController alloc] init] animated:true];
             break;
         }
         case BTT_MENU_ITEM_STATISTICS: {
@@ -88,4 +88,25 @@ typedef NS_ENUM(NSUInteger, BTT_MENU_ITEM_INDEX)
         }
     }
 }
+
+- (BTT_NAVBAR_BACKGROUND_STYLE)styleOfBarBackground {
+    return BTT_NAVBAR_BACKGROUND_GRAY;
+}
+
+- (BTT_NAVBAR_BUTTON_STYLE)styleOfLeftBarButtonItem {
+    return BTT_NAVBAR_BUTTON_RETURN_GRAY;
+}
+
+- (NSString *)stringOfLeftBarButtonItem {
+    return NSLocalizedString(@"return", nil);
+}
+
+- (BOOL)supportBackBarButtonItem {
+    return YES;
+}
+
+- (NSString *)stringOfTitle {
+    return NSLocalizedString(@"settings", nil);;
+}
+
 @end

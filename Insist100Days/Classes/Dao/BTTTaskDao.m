@@ -69,7 +69,7 @@
     BOOL result;
     [self.db beginTransaction];
     NSNumber *updatedTime = [NSNumber numberWithLong:[task.updatedTime timeIntervalSince1970]];
-    result = [self.db executeUpdate:@"UPDATE btt_task SET title=?, description=?, updated_time=?, status=?, current=?, checked_days=?, total_days=? WHERE task_id=?", task.title, task.description, updatedTime, task.status, task.current, task.checkedDays, task.totalDays];
+    result = [self.db executeUpdate:@"UPDATE btt_task SET title=?, description=?, updated_time=?, status=?, current=?, checked_days=?, total_days=? WHERE task_id=?", task.title, task.description, updatedTime, task.status, task.current, task.checkedDays, task.totalDays, task.taskId];
     if (result) {
         [self.db commit];
     } else {
@@ -134,6 +134,25 @@
     }
     [rs close];
     return task;
+}
+
+- (BOOL)setCurrent:(NSNumber *)taskId {
+    BOOL result;
+    BOOL resetResult;
+    BOOL setResult;
+
+    [self.db beginTransaction];
+
+    resetResult = [self.db executeUpdate:@"UPDATE btt_task SET current=0 WHERE current=1"];
+    setResult = [self.db executeUpdate:@"UPDATE btt_task SET current=1 WHERE book_id=?", taskId];
+    if (resetResult && setResult) {
+        result = YES;
+        [self.db commit];
+    } else {
+        result = NO;
+        [self.db rollback];
+    }
+    return result;
 }
 
 @end

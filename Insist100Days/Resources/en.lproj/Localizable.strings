@@ -10,3 +10,11 @@
 "menu item my tasks" = "My Tasks";
 "menu item statistics" = "statistics";
 "return" = "return";
+"settings" = "Settings";
+"task title label" = "Task:";
+"task title warning not null" = "Task must be not null!";
+"task title warning too long" = "Task is too long!";
+"save" = "Save";
+"save success" = "Save Successful!";
+"save failed" = "Save Failed!";
+"I know it" = "I Know It!";

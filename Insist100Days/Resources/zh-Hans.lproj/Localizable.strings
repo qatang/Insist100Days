@@ -10,3 +10,11 @@
 "menu item my tasks" = "我的任务";
 "menu item statistics" = "统计";
 "return" = "返回";
+"settings" = "设置";
+"task title label" = "目标:";
+"task title warning not null" = "目标不能为空！";
+"task title warning too long" = "字数太长了！";
+"save" = "保存";
+"save success" = "保存成功！";
+"save failed" = "保存失败！";
+"I know it" = "我知道了！";

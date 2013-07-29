@@ -25,4 +25,6 @@
 
 - (BTTTask *)getCurrent;
 
+- (BOOL) setCurrent:(NSNumber *)taskId;
+
 @end
