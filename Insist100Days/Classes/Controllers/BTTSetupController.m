@@ -9,6 +9,7 @@
 #import "BTTSetupController.h"
 #import "BTTCreateTaskController.h"
 #import "BTTListTaskController.h"
+#import "BTTSwitchTaskController.h"
 
 #define MENU_ITEM_HEIGHT 55
 
@@ -16,6 +17,7 @@ typedef NS_ENUM(NSUInteger, BTT_MENU_ITEM_INDEX)
 {
     BTT_MENU_ITEM_CREATE_TASK = 0,
     BTT_MENU_ITEM_MYTASK,
+    BTT_MENU_ITEM_SWITCHTASK,
     BTT_MENU_ITEM_STATISTICS,
     BTT_MENU_ITEM_COUNT
 };
@@ -28,11 +30,10 @@ typedef NS_ENUM(NSUInteger, BTT_MENU_ITEM_INDEX)
 {
     [super viewDidLoad];
 
-    UITableView *tableView = [self.view.subviews objectAtIndex:0];
-
     menuItemNames = [[NSArray alloc] initWithObjects:
             NSLocalizedString(@"menu item create task", nil),
             NSLocalizedString(@"menu item my tasks", nil),
+            NSLocalizedString(@"menu item switch task", nil),
             NSLocalizedString(@"menu item statistics", nil),
             nil];
 //    UIButton *rightBarButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 18)];
@@ -78,6 +79,10 @@ typedef NS_ENUM(NSUInteger, BTT_MENU_ITEM_INDEX)
             [self.navigationController pushViewController:[[BTTListTaskController alloc] init] animated:true];
             break;
         }
+        case BTT_MENU_ITEM_SWITCHTASK: {
+            [self.navigationController pushViewController:[[BTTSwitchTaskController alloc] init] animated:true];
+            break;
+        }
         case BTT_MENU_ITEM_STATISTICS: {
 //            [self.parentNavigationController pushViewController:[[BTTSettingsViewController alloc] init] animated:true];
 //            [self.sidePanelController showCenterPanelAnimated:YES];
@@ -93,16 +98,16 @@ typedef NS_ENUM(NSUInteger, BTT_MENU_ITEM_INDEX)
     return BTT_NAVBAR_BACKGROUND_GRAY;
 }
 
-- (BTT_NAVBAR_BUTTON_STYLE)styleOfLeftBarButtonItem {
+- (BTT_NAVBAR_BUTTON_STYLE)styleOfRightBarButtonItem {
     return BTT_NAVBAR_BUTTON_RETURN_GRAY;
 }
 
-- (NSString *)stringOfLeftBarButtonItem {
+- (NSString *)stringOfRightBarButtonItem {
     return NSLocalizedString(@"return", nil);
 }
 
-- (BOOL)supportBackBarButtonItem {
-    return YES;
+- (void)rightBarButtonItem:(UIButton *)btn {
+    [btn addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchDown];
 }
 
 - (NSString *)stringOfTitle {

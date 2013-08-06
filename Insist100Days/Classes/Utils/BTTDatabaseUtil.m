@@ -167,7 +167,7 @@
      created_time INTEGER NOT NULL DEFAULT 0, \
      updated_time INTEGER NOT NULL DEFAULT 0, \
      checked INTEGER NOT NULL DEFAULT 0, \
-     currentDays INTEGER NOT NULL DEFAULT 0\
+     current_days INTEGER NOT NULL DEFAULT 0\
 	 )"];
 
     [self setSchemaVersion:db version:BTT_DB_SCHEMA_VERSION];

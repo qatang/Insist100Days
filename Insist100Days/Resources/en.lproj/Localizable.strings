@@ -7,7 +7,9 @@
 */
 
 "menu item create task" = "Create Task";
+"menu item update task" = "Update Task";
 "menu item my tasks" = "My Tasks";
+"menu item switch task" = "Switch Current Task";
 "menu item statistics" = "statistics";
 "return" = "return";
 "settings" = "Settings";

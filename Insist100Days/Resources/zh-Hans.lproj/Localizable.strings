@@ -7,7 +7,9 @@
 */
 
 "menu item create task" = "创建新任务";
+"menu item update task" = "修改任务";
 "menu item my tasks" = "我的任务";
+"menu item switch task" = "切换当前任务";
 "menu item statistics" = "统计";
 "return" = "返回";
 "settings" = "设置";

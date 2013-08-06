@@ -91,7 +91,7 @@
 }
 
 - (BTTTaskItem *)get:(NSNumber *)taskId currentDays:(NSNumber *)currentDays {
-    FMResultSet *rs = [self.db executeQuery:@"SELECT * FROM btt_task_item WHERE task_id=?, current_days=?", taskId, currentDays];
+    FMResultSet *rs = [self.db executeQuery:@"SELECT * FROM btt_task_item WHERE task_id=? AND current_days=?", taskId, currentDays];
     BTTTaskItem *taskItem = nil;
     while ([rs next]) {
         taskItem = [self convertFromRs:rs];

@@ -144,7 +144,7 @@
     [self.db beginTransaction];
 
     resetResult = [self.db executeUpdate:@"UPDATE btt_task SET current=0 WHERE current=1"];
-    setResult = [self.db executeUpdate:@"UPDATE btt_task SET current=1 WHERE book_id=?", taskId];
+    setResult = [self.db executeUpdate:@"UPDATE btt_task SET current=1 WHERE task_id=?", taskId];
     if (resetResult && setResult) {
         result = YES;
         [self.db commit];
