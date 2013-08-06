@@ -26,15 +26,17 @@
 @property (strong, nonatomic) UILabel *currentCountLabel;
 @property (strong, nonatomic) UILabel *previousCountLabel;
 @property (strong, nonatomic) UILabel *nextCountLabel;
+@property (strong, nonatomic) UILabel *currentCheckinLabel;
+@property (strong, nonatomic) UILabel *previousCheckinLabel;
+@property (strong, nonatomic) UILabel *nextCheckinLabel;
 @property (strong, nonatomic) UIButton *currentCheckinButton;
-@property (strong, nonatomic) UIButton *previousCheckinButton;
-@property (strong, nonatomic) UIButton *nextCheckinButton;
 @property (strong, nonatomic) NSArray *viewArray;
 @property (strong, nonatomic) BTTHorizontalSlideView *slideView;
 
 @property (strong, nonatomic) BTTTask *task;
 @property (strong, nonatomic) BTTTaskDao *taskDao;
 @property (strong, nonatomic) BTTTaskItem *taskItem;
+@property (strong, nonatomic) BTTTaskItem *previousTaskItem;
 @property (strong, nonatomic) BTTTaskItemDao *taskItemDao;
 
 @end
@@ -51,14 +53,16 @@
 @synthesize previousCountLabel;
 @synthesize nextCountLabel;
 @synthesize currentCheckinButton;
-@synthesize previousCheckinButton;
-@synthesize nextCheckinButton;
+@synthesize currentCheckinLabel;
+@synthesize previousCheckinLabel;
+@synthesize nextCheckinLabel;
 @synthesize viewArray;
 @synthesize slideView;
 @synthesize task;
 @synthesize taskDao;
 @synthesize taskItem;
 @synthesize taskItemDao;
+@synthesize previousTaskItem;
 
 - (void)loadData {
     if (!taskDao) {
@@ -73,6 +77,9 @@
         NSDate *now = [NSDate new];
         NSInteger todayCurrentDays = [BTTDateUtil daysBetweenTwoDatesByEra:self.task.beginTime toDate:now] + 1;
         taskItem = [taskItemDao get:task.taskId currentDays:[NSNumber numberWithInteger:todayCurrentDays]];
+
+        NSInteger yesterdayCurrentDays = [BTTDateUtil daysBetweenTwoDatesByEra:self.task.beginTime toDate:now] + 1 - 1;
+        previousTaskItem = [taskItemDao get:task.taskId currentDays:[NSNumber numberWithInteger:yesterdayCurrentDays]];
     }
 }
 
@@ -93,11 +100,34 @@
     previousCountLabel.text = [NSString stringWithFormat:@"%d", todayCurrentDays - 1];
     nextCountLabel.text = [NSString stringWithFormat:@"%d", todayCurrentDays + 1];
 
-    if (taskItem) {
+    if (todayCurrentDays == 1) {
+        [slideView bindLeftSwipeRecognizer:current];
+    } else if (todayCurrentDays == 1 + 1) {
+        [slideView bindLeftSwipeRecognizer:previous];
+    }
+    if (todayCurrentDays == 100) {
+        [slideView bindRightSwipeRecognizer:current];
+    } else if (todayCurrentDays == 100 - 1) {
+        [slideView bindRightSwipeRecognizer:next];
+    }
+
+    if (taskItem && taskItem.checked) {
         currentCheckinButton.hidden = YES;
+        currentCheckinLabel.hidden = NO;
+        currentCheckinLabel.text = @"checked";
     } else {
         currentCheckinButton.hidden = NO;
+        currentCheckinLabel.hidden = YES;
+        currentCheckinLabel.text = @"unchecked";
     }
+
+    if (previousTaskItem && previousTaskItem.checked) {
+        previousCheckinLabel.text = @"checked";
+    } else {
+        previousCheckinLabel.text = @"unchecked";
+    }
+
+    nextCheckinLabel.text = @"not start";
 }
 
 - (void)drawView {
@@ -135,6 +165,10 @@
     currentCheckinButton.backgroundColor = [UIColor redColor];
     [currentCheckinButton addTarget:self action:@selector(checkin) forControlEvents:UIControlEventTouchDown];
 
+    currentCheckinLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 140, 100, 30)];
+    currentCheckinLabel.textAlignment = NSTextAlignmentCenter;
+    currentCheckinLabel.font = [UIFont boldSystemFontOfSize:12];
+
     current = [[UIView alloc] initWithFrame:middleMainView.bounds];
     current.backgroundColor = [UIColor whiteColor];
     current.tag = 0;
@@ -143,6 +177,7 @@
     [current addSubview:currentDateStringLabel];
     [current addSubview:currentCountStringLabel];
     [current addSubview:currentCheckinButton];
+    [current addSubview:currentCheckinLabel];
 
     UILabel *previousDateStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 80, 30)];
     previousDateStringLabel.textAlignment = NSTextAlignmentRight;
@@ -165,6 +200,10 @@
 //    previousCheckinButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
 //    previousCheckinButton.backgroundColor = [UIColor redColor];
 
+    previousCheckinLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 140, 100, 30)];
+    previousCheckinLabel.textAlignment = NSTextAlignmentCenter;
+    previousCheckinLabel.font = [UIFont boldSystemFontOfSize:12];
+
     previous = [[UIView alloc] initWithFrame:middleMainView.bounds];
     previous.backgroundColor = [UIColor whiteColor];
     previous.tag = -1;
@@ -173,6 +212,7 @@
     [previous addSubview:previousDateStringLabel];
     [previous addSubview:previousCountStringLabel];
 //    [previous addSubview:previousCheckinButton];
+    [previous addSubview:previousCheckinLabel];
 
     UILabel *nextDateStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 80, 30)];
     nextDateStringLabel.textAlignment = NSTextAlignmentRight;
@@ -195,6 +235,10 @@
 //    nextCheckinButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
 //    nextCheckinButton.backgroundColor = [UIColor redColor];
 
+    nextCheckinLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 140, 100, 30)];
+    nextCheckinLabel.textAlignment = NSTextAlignmentCenter;
+    nextCheckinLabel.font = [UIFont boldSystemFontOfSize:12];
+
     next = [[UIView alloc] initWithFrame:middleMainView.bounds];
     next.backgroundColor = [UIColor whiteColor];
     next.tag = 1;
@@ -203,6 +247,7 @@
     [next addSubview:nextDateStringLabel];
     [next addSubview:nextCountStringLabel];
 //    [next addSubview:nextCheckinButton];
+    [next addSubview:nextCheckinLabel];
 
     viewArray = [[NSArray alloc] initWithObjects:previous, current, next, nil];
 
@@ -242,6 +287,8 @@
     [taskItemDao save:item];
 
     currentCheckinButton.hidden = YES;
+    currentCheckinLabel.hidden = NO;
+    currentCheckinLabel.text = @"checked";
 }
 
 - (void)gotoSetup {
@@ -270,21 +317,64 @@
         [viewArrayTmp addObject:[viewArray objectAtIndex:2]];
         [viewArrayTmp addObject:[viewArray objectAtIndex:0]];
         viewArray = viewArrayTmp;
-        NSLog(@"%@", [BTTDateUtil convertDateToDateStringByDefaultPattern:currentDate]);
+//        NSLog(@"%@", [BTTDateUtil convertDateToDateStringByDefaultPattern:currentDate]);
+
+        NSInteger currentDays = todayCurrentDays + countIndex + 1;
+        BTTTaskItem *item = [taskItemDao get:task.taskId currentDays:[NSNumber numberWithInteger:currentDays]];
+
         UIView *v = viewArray.lastObject;
         if (v.tag > 0) {
             nextDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:nextDate];
-            nextCountLabel.text = [NSString stringWithFormat:@"%d", todayCurrentDays + countIndex + 1];
+            nextCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
+            if (item && item.checked) {
+                nextCheckinLabel.text = @"checked";
+            } else {
+                if (countIndex == 0 || [[currentDate laterDate:now] isEqualToDate:currentDate]) {
+                    nextCheckinLabel.text = @"not start";
+                } else {
+                    nextCheckinLabel.text = @"unchecked";
+                }
+            }
         } else if (v.tag < 0) {
             previousDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:nextDate];
-            previousCountLabel.text = [NSString stringWithFormat:@"%d", todayCurrentDays + countIndex + 1];
+            previousCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
+            if (item && item.checked) {
+                previousCheckinLabel.text = @"checked";
+            } else {
+                if (countIndex == 0 || [[currentDate laterDate:now] isEqualToDate:now]) {
+                    previousCheckinLabel.text = @"unchecked";
+                } else {
+                    previousCheckinLabel.text = @"not start";
+                }
+            }
         } else {
             currentDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:nextDate];
-            currentCountLabel.text = [NSString stringWithFormat:@"%d", todayCurrentDays + countIndex + 1];
+            currentCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
+            if (item && item.checked) {
+                currentCheckinButton.hidden = YES;
+                currentCheckinLabel.hidden = NO;
+                currentCheckinLabel.text = @"checked";
+            } else {
+                if (countIndex == -1) {
+                    currentCheckinButton.hidden = NO;
+                    currentCheckinLabel.hidden = YES;
+                    currentCheckinLabel.text = @"unchecked";
+                } else {
+                    if ([[currentDate laterDate:now] isEqualToDate:now]) {
+                        currentCheckinButton.hidden = YES;
+                        currentCheckinLabel.hidden = NO;
+                        currentCheckinLabel.text = @"unchecked";
+                    } else {
+                        currentCheckinButton.hidden = YES;
+                        currentCheckinLabel.hidden = NO;
+                        currentCheckinLabel.text = @"not start";
+                    }
+                }
+            }
         }
 
-
-        [slideView switchView:v];
+        BOOL isEnd = currentDays == 100 ? YES : NO;
+        [slideView switchView:v isEnd:isEnd];
     } else if (selectedIndex < 0) {
         NSMutableArray *viewArrayTmp = [NSMutableArray array];
         [viewArrayTmp addObject:[viewArray objectAtIndex:2]];
@@ -292,20 +382,62 @@
         [viewArrayTmp addObject:[viewArray objectAtIndex:1]];
         viewArray = viewArrayTmp;
 
+        NSInteger currentDays = todayCurrentDays + countIndex - 1;
+        BTTTaskItem *item = [taskItemDao get:task.taskId currentDays:[NSNumber numberWithInteger:currentDays]];
+
         UIView *v = [viewArray objectAtIndex:0];
         if (v.tag > 0) {
             nextDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:previousDate];
-            nextCountLabel.text = [NSString stringWithFormat:@"%d", todayCurrentDays + countIndex - 1];
+            nextCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
+            if (item && item.checked) {
+                nextCheckinLabel.text = @"checked";
+            } else {
+                if (countIndex == 0 || [[currentDate laterDate:now] isEqualToDate:now]) {
+                    nextCheckinLabel.text = @"unchecked";
+                } else {
+                    nextCheckinLabel.text = @"not start";
+                }
+            }
         } else if (v.tag < 0) {
             previousDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:previousDate];
-            previousCountLabel.text = [NSString stringWithFormat:@"%d", todayCurrentDays + countIndex - 1];
+            previousCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
+            if (item && item.checked) {
+                previousCheckinLabel.text = @"checked";
+            } else {
+                if (countIndex == 0 || [[currentDate laterDate:now] isEqualToDate:now]) {
+                    previousCheckinLabel.text = @"unchecked";
+                } else {
+                    previousCheckinLabel.text = @"not start";
+                }
+            }
         } else {
             currentDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:previousDate];
-            currentCountLabel.text = [NSString stringWithFormat:@"%d", todayCurrentDays + countIndex - 1];
+            currentCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
+            if (item && item.checked) {
+                currentCheckinButton.hidden = YES;
+                currentCheckinLabel.hidden = NO;
+                currentCheckinLabel.text = @"checked";
+            } else {
+                if (countIndex == 1) {
+                    currentCheckinButton.hidden = NO;
+                    currentCheckinLabel.hidden = YES;
+                    currentCheckinLabel.text = @"unchecked";
+                } else {
+                    if ([[currentDate laterDate:now] isEqualToDate:now]) {
+                        currentCheckinButton.hidden = YES;
+                        currentCheckinLabel.hidden = NO;
+                        currentCheckinLabel.text = @"unchecked";
+                    } else {
+                        currentCheckinButton.hidden = YES;
+                        currentCheckinLabel.hidden = NO;
+                        currentCheckinLabel.text = @"not start";
+                    }
+                }
+            }
         }
 
-
-        [slideView switchView:v];
+        BOOL isEnd = currentDays == 1 ? YES : NO;
+        [slideView switchView:v isEnd:isEnd];
     }
 
 }

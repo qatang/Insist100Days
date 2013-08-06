@@ -20,6 +20,10 @@
 
 - initWithView:(UIView *)current previous:(UIView *)previous next:(UIView *)next frame:(CGRect)frame;
 
-- (void)switchView:(UIView *)switchView;
+- (void)switchView:(UIView *)switchView isEnd:(BOOL)isEnd;
+
+- (void)bindLeftSwipeRecognizer:(UIView *)bindView;
+
+- (void)bindRightSwipeRecognizer:(UIView *)bindView;
 
 @end

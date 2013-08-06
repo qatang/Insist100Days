@@ -154,7 +154,21 @@
 //
 //}
 
-- (void)switchView:(UIView *)switchView {
+- (void)bindLeftSwipeRecognizer:(UIView *)bindView {
+    [self unbindRecognizer:bindView];
+    UISwipeGestureRecognizer *swipeLeftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    [swipeLeftGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [bindView addGestureRecognizer:swipeLeftGestureRecognizer];
+}
+
+- (void)bindRightSwipeRecognizer:(UIView *)bindView {
+    [self unbindRecognizer:bindView];
+    UISwipeGestureRecognizer *swipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    [swipeRightGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [bindView addGestureRecognizer:swipeRightGestureRecognizer];
+}
+
+- (void)switchView:(UIView *)switchView isEnd:(BOOL)isEnd {
     [self bindRecognizer:switchView];
 //    NSLog(@"before current tag : %d", currentView.tag);
 //    NSLog(@"before previous tag : %d", previousView.tag);
@@ -165,11 +179,23 @@
         currentView = nextView;
         switchView.center = CGPointMake(self.center.x + self.bounds.size.width, self.center.y);
         nextView = switchView;
+        if (isEnd) {
+            [self unbindRecognizer:switchView];
+            UISwipeGestureRecognizer *swipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+            [swipeRightGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+            [switchView addGestureRecognizer:swipeRightGestureRecognizer];
+        }
     } else if (selectedIndex < 0) {
         nextView = currentView;
         currentView = previousView;
         switchView.center = CGPointMake(self.center.x - self.bounds.size.width, self.center.y);
         previousView = switchView;
+        if (isEnd) {
+            [self unbindRecognizer:switchView];
+            UISwipeGestureRecognizer *swipeLeftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+            [swipeLeftGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+            [switchView addGestureRecognizer:swipeLeftGestureRecognizer];
+        }
     }
 
 //    NSLog(@"after current tag : %d", currentView.tag);
