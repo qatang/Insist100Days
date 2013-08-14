@@ -40,6 +40,7 @@
 		C660BB1C50B2118193772949 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660BF683EF87B401117F41A /* CoreGraphics.framework */; };
 		C660BB852F1F056DA2E3B466 /* navbar-button-return-green.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B2F0FB991303DE0C6550 /* navbar-button-return-green.png */; };
 		C660BB9F566CEDC5B47C20AF /* navbar-button-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BF6C548A872BD55974E7 /* navbar-button-menu.png */; };
+		C660BBA01B610AAE5F689D7B /* BTTWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B91E018FE2A3EC29D248 /* BTTWeekView.m */; };
 		C660BBFB761475E75FBF3056 /* navbar-button-menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BCF91E920BA7C6E4698B /* navbar-button-menu@2x.png */; };
 		C660BC2FFAAC53780A8C6E98 /* navbar-button-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B222509CCF444FDFA841 /* navbar-button-edit.png */; };
 		C660BC4D2CCF0B6E123BA0E3 /* BTTTaskItemDao.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B6C9A6D4929628342FAC /* BTTTaskItemDao.m */; };
@@ -68,6 +69,7 @@
 		80EF386B1772F74E00A28091 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8E1839146C294F5BA4AC5C5E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		C660B07269B45CA9736AA317 /* BTTTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskItem.m; sourceTree = "<group>"; };
+		C660B11DF55D83886DEF8C90 /* BTTWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTWeekView.h; sourceTree = "<group>"; };
 		C660B12DC98AC04E87B3200D /* Insist100Days-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "Insist100Days-Info.plist"; sourceTree = "<group>"; };
 		C660B222509CCF444FDFA841 /* navbar-button-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-edit.png"; sourceTree = "<group>"; };
 		C660B26693AFCCBDD9D64D6C /* Insist100Days-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Insist100Days-Prefix.pch"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		C660B892C98E72CF88EBBD64 /* BTTDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTDateUtil.h; sourceTree = "<group>"; };
 		C660B8A77D0BAA92BE7766B2 /* BTTListTaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTListTaskController.m; sourceTree = "<group>"; };
 		C660B8EB9DB269941C797175 /* BTTUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTUIViewController.m; sourceTree = "<group>"; };
+		C660B91E018FE2A3EC29D248 /* BTTWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTWeekView.m; sourceTree = "<group>"; };
 		C660B9594C1AD1CB993E545A /* setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setup.png; sourceTree = "<group>"; };
 		C660B9DA0E9669FC47A92CAA /* BTTIndexController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTIndexController.m; sourceTree = "<group>"; };
 		C660B9E8708AF574C2A00A49 /* BTTSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTSetupController.m; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 			children = (
 				C660BB4342E8EC5591135CA9 /* BTTHorizontalSlideView.m */,
 				C660BF215A24703AB15457E4 /* BTTHorizontalSlideView.h */,
+				C660B91E018FE2A3EC29D248 /* BTTWeekView.m */,
+				C660B11DF55D83886DEF8C90 /* BTTWeekView.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				C660BF05897FD367D119F099 /* BTTUIViewController.m in Sources */,
 				C660B98F71CD4F3FB0469B05 /* BTTListTaskController.m in Sources */,
 				C660BDC48321098C32BC3F60 /* BTTSwitchTaskController.m in Sources */,
+				C660BBA01B610AAE5F689D7B /* BTTWeekView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

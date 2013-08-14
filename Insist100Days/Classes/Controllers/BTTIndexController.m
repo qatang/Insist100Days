@@ -14,6 +14,7 @@
 #import "BTTTaskItem.h"
 #import "BTTTaskItemDao.h"
 #import "BTTEnums.h"
+#import "BTTWeekView.h"
 
 @interface BTTIndexController()
 
@@ -32,6 +33,7 @@
 @property (strong, nonatomic) UIButton *currentCheckinButton;
 @property (strong, nonatomic) NSArray *viewArray;
 @property (strong, nonatomic) BTTHorizontalSlideView *slideView;
+@property (strong, nonatomic) UILabel *titleLabel;
 
 @property (strong, nonatomic) BTTTask *task;
 @property (strong, nonatomic) BTTTaskDao *taskDao;
@@ -63,6 +65,7 @@
 @synthesize taskItem;
 @synthesize taskItemDao;
 @synthesize previousTaskItem;
+@synthesize titleLabel;
 
 - (void)loadData {
     if (!taskDao) {
@@ -84,6 +87,8 @@
 }
 
 - (void)setValue {
+    titleLabel.text = task.title;
+
     NSDate *now = [NSDate new];
     currentDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:now];
 
@@ -132,10 +137,21 @@
 
 - (void)drawView {
     UIView *topView = [self.view.subviews objectAtIndex:0];
-    topView.backgroundColor = [UIColor redColor];
+//    topView.backgroundColor = [UIColor redColor];
+    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 4, 280, 30)];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = [UIFont boldSystemFontOfSize:14];
+
+    BTTWeekView *weekView = [[BTTWeekView alloc] initWithFrame:CGRectMake(0, 30, topView.bounds.size.width, topView.bounds.size.height - 30)];
+
+    [topView addSubview:titleLabel];
+    [topView addSubview:weekView];
 
     UIView *middleView = [self.view.subviews objectAtIndex:1];
     UIView *middleMainView = [middleView.subviews objectAtIndex:0];
+
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 2)];
+    lineView.backgroundColor = [UIColor grayColor];
 
     UIView *middleBottomView = [middleView.subviews objectAtIndex:1];
     UIButton *middleBottomButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 13, 24, 24)];
@@ -255,6 +271,8 @@
     slideView.delegate = self;
 
     [middleMainView addSubview:slideView];
+    [middleMainView addSubview:lineView];
+
 }
 
 - (void)viewDidLoad {

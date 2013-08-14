@@ -146,7 +146,7 @@
         task.totalDays = [[NSNumber alloc] initWithInt:100];
 
         BTTTaskDao *taskDao = [[BTTTaskDao alloc] init];
-        BOOL *result = [taskDao save:task];
+        BOOL result = [taskDao save:task];
         if (!result) {
             BTTLOG_ERROR(@"task save failed!");
             return;
