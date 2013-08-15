@@ -20,4 +20,7 @@ typedef NS_ENUM(NSUInteger, weekDays)
 };
 
 @interface BTTWeekView : UIView
+
+@property (strong, nonatomic) NSArray *weekTaskItemArray;
+
 @end

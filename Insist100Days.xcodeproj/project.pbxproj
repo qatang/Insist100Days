@@ -14,6 +14,7 @@
 		80EF386C1772F74E00A28091 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80EF386B1772F74E00A28091 /* QuartzCore.framework */; };
 		C660B0CF1DCA7BF37D228946 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C660B303ED3C2ACB9EA44C32 /* InfoPlist.strings */; };
 		C660B0FD29576A796100812F /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B9594C1AD1CB993E545A /* setup.png */; };
+		C660B104664DC839D18285FB /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B025CEB7CFDC9293C195 /* warning.png */; };
 		C660B1274A8D0A725599D914 /* BTTTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B07269B45CA9736AA317 /* BTTTaskItem.m */; };
 		C660B265A56CDF9138E644DD /* payout_pen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BE7C3B5FF5F2AB119E20 /* payout_pen@2x.png */; };
 		C660B2CEB82CFAB53506D19C /* navbar-background-gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B2FAF3FA6B36E5B201C8 /* navbar-background-gray@2x.png */; };
@@ -37,6 +38,7 @@
 		C660B9FA1B05D174243A8CD7 /* navbar-background-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BB743C8543A7B5D1EA51 /* navbar-background-gray.png */; };
 		C660BA1C2E8DBF9C4F450100 /* BTTTaskDao.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B39BFB29B5259F2D5F20 /* BTTTaskDao.m */; };
 		C660BA38F4C13B1E3DE64EDC /* navbar-button-done-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA1A128C55F75902EFB8 /* navbar-button-done-green@2x.png */; };
+		C660BAF835CC9FA9662AFE5D /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B09BD6A42EED465464DD /* cancel.png */; };
 		C660BB1C50B2118193772949 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C660BF683EF87B401117F41A /* CoreGraphics.framework */; };
 		C660BB852F1F056DA2E3B466 /* navbar-button-return-green.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B2F0FB991303DE0C6550 /* navbar-button-return-green.png */; };
 		C660BB9F566CEDC5B47C20AF /* navbar-button-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BF6C548A872BD55974E7 /* navbar-button-menu.png */; };
@@ -47,6 +49,7 @@
 		C660BC5387605D92AC60FDCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B4FC1257C06D79DAB741 /* main.m */; };
 		C660BC6D5822D6FC707DAEF1 /* navbar-button-return-gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA33F4D814F15C653A7A /* navbar-button-return-gray@2x.png */; };
 		C660BCBCA48FF7EDBC491414 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B598773E423E1080EFAD /* Default-568h@2x.png */; };
+		C660BCFFC8AFCA3F1C01AB67 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B443854B73C446FC08D4 /* cancel@2x.png */; };
 		C660BD952CF90BBBA23DABC6 /* navbar-button-edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B7EED4BE78D34E225FF1 /* navbar-button-edit@2x.png */; };
 		C660BDC48321098C32BC3F60 /* BTTSwitchTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660BDC240F209041C73BC00 /* BTTSwitchTaskController.m */; };
 		C660BE18D5AB6C4D2CAA524F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA1D03E29CB4E991BAFA /* Default@2x.png */; };
@@ -57,6 +60,7 @@
 		C660BF503322D43852B16AB0 /* navbar-background-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BEB1DAD9534993E8B5DB /* navbar-background-green@2x.png */; };
 		C660BF540017452BD5BF533A /* BTTTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B73C84950C0AFEB96908 /* BTTTask.m */; };
 		C660BF56EB4C6A52D715DF02 /* navbar-button-done-green.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B3CA22C3A7B8D08B3543 /* navbar-button-done-green.png */; };
+		C660BF7164CC2692D1AD895A /* warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B26C34C80C753D205087 /* warning@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,11 +72,14 @@
 		80EF386A1772E18A00A28091 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		80EF386B1772F74E00A28091 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8E1839146C294F5BA4AC5C5E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		C660B025CEB7CFDC9293C195 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
 		C660B07269B45CA9736AA317 /* BTTTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskItem.m; sourceTree = "<group>"; };
+		C660B09BD6A42EED465464DD /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		C660B11DF55D83886DEF8C90 /* BTTWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTWeekView.h; sourceTree = "<group>"; };
 		C660B12DC98AC04E87B3200D /* Insist100Days-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "Insist100Days-Info.plist"; sourceTree = "<group>"; };
 		C660B222509CCF444FDFA841 /* navbar-button-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-edit.png"; sourceTree = "<group>"; };
 		C660B26693AFCCBDD9D64D6C /* Insist100Days-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Insist100Days-Prefix.pch"; sourceTree = "<group>"; };
+		C660B26C34C80C753D205087 /* warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning@2x.png"; sourceTree = "<group>"; };
 		C660B29923C907735BFBFFBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C660B2E876CA7F90126DD50F /* BTTListTaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTListTaskController.h; sourceTree = "<group>"; };
 		C660B2F0FB991303DE0C6550 /* navbar-button-return-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-return-green.png"; sourceTree = "<group>"; };
@@ -82,6 +89,7 @@
 		C660B39BFB29B5259F2D5F20 /* BTTTaskDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskDao.m; sourceTree = "<group>"; };
 		C660B3CA22C3A7B8D08B3543 /* navbar-button-done-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-done-green.png"; sourceTree = "<group>"; };
 		C660B3CE8DA2B93598BF6828 /* BTTCreateTaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTCreateTaskController.h; sourceTree = "<group>"; };
+		C660B443854B73C446FC08D4 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
 		C660B46AF96AF953919C497D /* BTTDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTDateUtil.m; sourceTree = "<group>"; };
 		C660B46DAEA06EBDDB09E5BE /* setup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setup@2x.png"; sourceTree = "<group>"; };
 		C660B4B1927678C7FE3DEA61 /* BTTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTAppDelegate.h; sourceTree = "<group>"; };
@@ -354,6 +362,10 @@
 				C660BAAC5C233396246938FA /* navbar */,
 				C660B31E2A155C2FC8E0FE9E /* check_mark.png */,
 				C660B83CD99E8C1B498E5975 /* check_mark@2x.png */,
+				C660B26C34C80C753D205087 /* warning@2x.png */,
+				C660B025CEB7CFDC9293C195 /* warning.png */,
+				C660B09BD6A42EED465464DD /* cancel.png */,
+				C660B443854B73C446FC08D4 /* cancel@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -449,6 +461,10 @@
 				C660B8AF96CCF79F731F80B9 /* navbar-button-return-green@2x.png in Resources */,
 				C660BF1E79CA72C117754888 /* check_mark.png in Resources */,
 				C660B91A36E7AD60782B80FD /* check_mark@2x.png in Resources */,
+				C660BF7164CC2692D1AD895A /* warning@2x.png in Resources */,
+				C660B104664DC839D18285FB /* warning.png in Resources */,
+				C660BAF835CC9FA9662AFE5D /* cancel.png in Resources */,
+				C660BCFFC8AFCA3F1C01AB67 /* cancel@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

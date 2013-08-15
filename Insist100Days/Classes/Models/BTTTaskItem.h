@@ -18,4 +18,8 @@
 @property (strong, nonatomic) NSDate *updatedTime;
 @property (strong, nonatomic) NSNumber *currentDays;
 
+@property (nonatomic) BOOL in100days;
+@property (nonatomic) BOOL afterToday;
+@property (nonatomic) BOOL currentDate;
+
 @end

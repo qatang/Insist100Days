@@ -34,12 +34,14 @@
 @property (strong, nonatomic) NSArray *viewArray;
 @property (strong, nonatomic) BTTHorizontalSlideView *slideView;
 @property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) BTTWeekView *weekView;
 
 @property (strong, nonatomic) BTTTask *task;
 @property (strong, nonatomic) BTTTaskDao *taskDao;
 @property (strong, nonatomic) BTTTaskItem *taskItem;
 @property (strong, nonatomic) BTTTaskItem *previousTaskItem;
 @property (strong, nonatomic) BTTTaskItemDao *taskItemDao;
+@property (strong, nonatomic) NSArray *weekTaskItemArray;
 
 @end
 
@@ -66,6 +68,8 @@
 @synthesize taskItemDao;
 @synthesize previousTaskItem;
 @synthesize titleLabel;
+@synthesize weekTaskItemArray;
+@synthesize weekView;
 
 - (void)loadData {
     if (!taskDao) {
@@ -133,6 +137,9 @@
     }
 
     nextCheckinLabel.text = @"not start";
+
+    [self loadWeekViewData:now todayCurrentDays:todayCurrentDays];
+    [weekView setWeekTaskItemArray:weekTaskItemArray];
 }
 
 - (void)drawView {
@@ -142,7 +149,7 @@
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.font = [UIFont boldSystemFontOfSize:14];
 
-    BTTWeekView *weekView = [[BTTWeekView alloc] initWithFrame:CGRectMake(0, 30, topView.bounds.size.width, topView.bounds.size.height - 30)];
+    weekView = [[BTTWeekView alloc] initWithFrame:CGRectMake(0, 30, topView.bounds.size.width, topView.bounds.size.height - 30)];
 
     [topView addSubview:titleLabel];
     [topView addSubview:weekView];
@@ -329,6 +336,10 @@
     NSInteger todayCurrentDays = [BTTDateUtil daysBetweenTwoDatesByEra:self.task.beginTime toDate:now] + 1;
 //    NSLog(@"countIndex : %d", countIndex);
 //    NSLog(@"todayCurrentDays : %d", todayCurrentDays);
+
+    [self loadWeekViewData:currentDate todayCurrentDays:todayCurrentDays];
+    [weekView setWeekTaskItemArray:weekTaskItemArray];
+
     if (selectedIndex > 0) {
         NSMutableArray *viewArrayTmp = [NSMutableArray array];
         [viewArrayTmp addObject:[viewArray objectAtIndex:1]];
@@ -458,6 +469,52 @@
         [slideView switchView:v isEnd:isEnd];
     }
 
+}
+
+- (void)loadWeekViewData:(NSDate *)currentDate todayCurrentDays:(NSInteger)todayCurrentDays {
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:currentDate];
+    int weekday = [comps weekday];
+//    NSLog(@"currentDate day : %d", weekday);
+//    NSLog(@"currentDate : %@", [BTTDateUtil convertDateToDateStringByDefaultPattern:currentDate]);
+    NSDate *firstWeekDate = [currentDate dateByAddingTimeInterval:(-1 * weekday + 1) * 24 * 60 * 60];
+//    NSLog(@"first currentDate : %@", [BTTDateUtil convertDateToDateStringByDefaultPattern:firstWeekDate]);
+//    NSLog(@"last currentDate : %@", [BTTDateUtil convertDateToDateStringByDefaultPattern:[currentDate initWithTimeIntervalSinceNow:24 * 60 * 60 * (7 - weekday)]]);
+//    NSLog(@"first currentDate days : %d", [BTTDateUtil daysBetweenTwoDatesByEra:self.task.beginTime toDate:firstWeekDate] + 1);
+    NSMutableArray *_weekTaskItemArray = [[NSMutableArray alloc] init];
+    for (int i =0; i < 7; i ++) {
+        NSDate *weekDate = [firstWeekDate dateByAddingTimeInterval:i * 24 * 60 * 60];
+//        NSLog(@"weekdate : %@", [BTTDateUtil convertDateToDateStringByDefaultPattern:weekDate]);
+        NSUInteger weekDateCurrentDays = [BTTDateUtil daysBetweenTwoDatesByEra:self.task.beginTime toDate:weekDate] + 1;
+//        NSLog(@"weekDateCurrentDays : %d", weekDateCurrentDays);
+
+        BTTTaskItem *_taskItem = [taskItemDao get:task.taskId currentDays:[NSNumber numberWithInteger:weekDateCurrentDays]];
+        if (!_taskItem) {
+            _taskItem = [[BTTTaskItem alloc] init];
+            _taskItem.checked = [NSNumber numberWithInteger:0];
+        }
+
+        if (weekDateCurrentDays <= 0 || weekDateCurrentDays > 100) {
+            _taskItem.in100days = NO;
+        } else {
+            _taskItem.in100days = YES;
+        }
+
+        if (todayCurrentDays < weekDateCurrentDays) {
+            _taskItem.afterToday = YES;
+        } else {
+            _taskItem.afterToday = NO;
+        }
+
+        if (i + 1 == weekday) {
+            _taskItem.currentDate = YES;
+        } else {
+            _taskItem.currentDate = NO;
+        }
+
+        [_weekTaskItemArray addObject:_taskItem];
+    }
+    weekTaskItemArray = _weekTaskItemArray;
 }
 
 @end

@@ -17,5 +17,8 @@
 @synthesize createdTime;
 @synthesize updatedTime;
 @synthesize currentDays;
+@synthesize in100days;
+@synthesize afterToday;
+@synthesize currentDate;
 
 @end
