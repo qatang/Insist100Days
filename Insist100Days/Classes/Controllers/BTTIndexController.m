@@ -35,13 +35,13 @@
 @property (strong, nonatomic) BTTHorizontalSlideView *slideView;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) BTTWeekView *weekView;
+@property (strong, nonatomic) UIView *middleMainView;
 
 @property (strong, nonatomic) BTTTask *task;
 @property (strong, nonatomic) BTTTaskDao *taskDao;
 @property (strong, nonatomic) BTTTaskItem *taskItem;
 @property (strong, nonatomic) BTTTaskItem *previousTaskItem;
 @property (strong, nonatomic) BTTTaskItemDao *taskItemDao;
-@property (strong, nonatomic) NSArray *weekTaskItemArray;
 
 @end
 
@@ -68,8 +68,8 @@
 @synthesize taskItemDao;
 @synthesize previousTaskItem;
 @synthesize titleLabel;
-@synthesize weekTaskItemArray;
 @synthesize weekView;
+@synthesize middleMainView;
 
 - (void)loadData {
     if (!taskDao) {
@@ -138,7 +138,9 @@
 
     nextCheckinLabel.text = @"not start";
 
-    [self loadWeekViewData:now todayCurrentDays:todayCurrentDays];
+    viewArray = [[NSArray alloc] initWithObjects:previous, current, next, nil];
+
+    NSArray *weekTaskItemArray = [self loadWeekViewData:now todayCurrentDays:todayCurrentDays];
     [weekView setWeekTaskItemArray:weekTaskItemArray];
 }
 
@@ -155,16 +157,22 @@
     [topView addSubview:weekView];
 
     UIView *middleView = [self.view.subviews objectAtIndex:1];
-    UIView *middleMainView = [middleView.subviews objectAtIndex:0];
+    middleMainView = [middleView.subviews objectAtIndex:0];
 
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 2)];
     lineView.backgroundColor = [UIColor grayColor];
 
     UIView *middleBottomView = [middleView.subviews objectAtIndex:1];
-    UIButton *middleBottomButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 13, 24, 24)];
-    [middleBottomButton setBackgroundImage:[UIImage imageNamed:@"setup"] forState:UIControlStateNormal];
-    [middleBottomButton addTarget:self action:@selector(gotoSetup) forControlEvents:UIControlEventTouchDown];
-    [middleBottomView addSubview:middleBottomButton];
+
+    UIButton *middleBottomTodayButton = [[UIButton alloc] initWithFrame:CGRectMake(16, 13, 24, 24)];
+    [middleBottomTodayButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [middleBottomTodayButton addTarget:self action:@selector(backToday) forControlEvents:UIControlEventTouchDown];
+    [middleBottomView addSubview:middleBottomTodayButton];
+
+    UIButton *middleBottomSettingsButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 13, 24, 24)];
+    [middleBottomSettingsButton setBackgroundImage:[UIImage imageNamed:@"settings"] forState:UIControlStateNormal];
+    [middleBottomSettingsButton addTarget:self action:@selector(gotoSetup) forControlEvents:UIControlEventTouchDown];
+    [middleBottomView addSubview:middleBottomSettingsButton];
 
     UILabel *currentDateStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 80, 30)];
     currentDateStringLabel.textAlignment = NSTextAlignmentRight;
@@ -272,8 +280,6 @@
 //    [next addSubview:nextCheckinButton];
     [next addSubview:nextCheckinLabel];
 
-    viewArray = [[NSArray alloc] initWithObjects:previous, current, next, nil];
-
     slideView = [[BTTHorizontalSlideView alloc] initWithView:current previous:previous next:next frame:middleMainView.bounds];
     slideView.delegate = self;
 
@@ -314,6 +320,18 @@
     currentCheckinButton.hidden = YES;
     currentCheckinLabel.hidden = NO;
     currentCheckinLabel.text = @"checked";
+
+    NSArray *weekTaskItemArray = [self loadWeekViewData:now todayCurrentDays:todayCurrentDays];
+    [weekView setWeekTaskItemArray:weekTaskItemArray];
+}
+
+- (void)backToday {
+    if (weekView) {
+        [weekView removeFromSuperview];
+    }
+    [self drawView];
+
+    [self setValue];
 }
 
 - (void)gotoSetup {
@@ -337,7 +355,7 @@
 //    NSLog(@"countIndex : %d", countIndex);
 //    NSLog(@"todayCurrentDays : %d", todayCurrentDays);
 
-    [self loadWeekViewData:currentDate todayCurrentDays:todayCurrentDays];
+    NSArray *weekTaskItemArray = [self loadWeekViewData:currentDate todayCurrentDays:todayCurrentDays];
     [weekView setWeekTaskItemArray:weekTaskItemArray];
 
     if (selectedIndex > 0) {
@@ -471,7 +489,7 @@
 
 }
 
-- (void)loadWeekViewData:(NSDate *)currentDate todayCurrentDays:(NSInteger)todayCurrentDays {
+- (NSArray *)loadWeekViewData:(NSDate *)currentDate todayCurrentDays:(NSInteger)todayCurrentDays {
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:currentDate];
     int weekday = [comps weekday];
@@ -514,7 +532,7 @@
 
         [_weekTaskItemArray addObject:_taskItem];
     }
-    weekTaskItemArray = _weekTaskItemArray;
+    return _weekTaskItemArray;
 }
 
 @end

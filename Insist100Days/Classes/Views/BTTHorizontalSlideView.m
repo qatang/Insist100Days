@@ -56,7 +56,6 @@
     return self;
 }
 
-
 - (void)setupViews {
     currentView.center = self.center;
     previousView.center = CGPointMake(self.center.x - self.bounds.size.width, self.center.y);

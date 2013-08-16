@@ -194,6 +194,7 @@
             if (taskItem.afterToday) {
                 weekdayImageView.image = [UIImage imageNamed:@"warning"];
             } else {
+                weekdayImageView.image = nil;
                 if (taskItem.checked == [NSNumber numberWithInteger:1]) {
                     weekdayImageView.image = [UIImage imageNamed:@"check_mark"];
                 } else {
