@@ -339,6 +339,7 @@
 }
 
 - (void)backToday {
+    [self loadData];
     if (weekView) {
         [weekView removeFromSuperview];
     }
