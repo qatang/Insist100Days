@@ -310,6 +310,10 @@
     BTTTask *currentTask = [taskDao getCurrent];
     if (task.taskId != currentTask.taskId) {
         [self loadData];
+        if (weekView) {
+            [weekView removeFromSuperview];
+        }
+        [self drawView];
         [self setValue];
     }
 }
