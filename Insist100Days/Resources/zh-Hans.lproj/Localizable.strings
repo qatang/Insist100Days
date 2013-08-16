@@ -20,3 +20,17 @@
 "save success" = "保存成功！";
 "save failed" = "保存失败！";
 "I know it" = "我知道了！";
+"checked" = "已完成！";
+"unchecked" = "未完成！";
+"not start" = "未开始！";
+"date" = "日期：";
+"days" = "天数：";
+"checkin" = "完成任务";
+
+"sunday" = "日";
+"monday" = "一";
+"tuesday" = "二";
+"wednesday" = "三";
+"thursday" = "四";
+"friday" = "五";
+"saturday" = "六";

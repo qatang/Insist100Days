@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) FMDatabase *db;
 
-+ (FMDatabase *)connectionFromDatabase;
 + (void)initSchema:(FMDatabase *)db;
 + (int)schemaVersion:(FMDatabase *)db;
 + (void)setSchemaVersion:(FMDatabase *)db version:(NSInteger)version;
@@ -23,6 +22,5 @@
 + (BTTDatabaseUtil *)shared;
 + (BOOL)dropTable:(NSString *)tableName;
 - (BOOL)establishConnection;
-- (BOOL)isTableExist:(NSString *)tableName;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "BTTWeekView.h"
 #import "BTTTaskItem.h"
+#import "BTTConfig.h"
 
 #define MARGIN_LEFT 20
 
@@ -62,17 +63,17 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        weekDayViewWidth = floorf((frame.size.width - MARGIN_LEFT * 2) / 7);
+        weekDayViewWidth = floorf((frame.size.width - MARGIN_LEFT * 2) / WEEK_DAYS_COUNT);
         weekDayViewHeight = frame.size.height;
 
         NSMutableArray *_weekdayTextArray = [[NSMutableArray alloc] init];
-        [_weekdayTextArray addObject:@"日"];
-        [_weekdayTextArray addObject:@"一"];
-        [_weekdayTextArray addObject:@"二"];
-        [_weekdayTextArray addObject:@"三"];
-        [_weekdayTextArray addObject:@"四"];
-        [_weekdayTextArray addObject:@"五"];
-        [_weekdayTextArray addObject:@"六"];
+        [_weekdayTextArray addObject:NSLocalizedString(@"sunday", nil)];
+        [_weekdayTextArray addObject:NSLocalizedString(@"monday", nil)];
+        [_weekdayTextArray addObject:NSLocalizedString(@"tuesday", nil)];
+        [_weekdayTextArray addObject:NSLocalizedString(@"wednesday", nil)];
+        [_weekdayTextArray addObject:NSLocalizedString(@"thursday", nil)];
+        [_weekdayTextArray addObject:NSLocalizedString(@"friday", nil)];
+        [_weekdayTextArray addObject:NSLocalizedString(@"saturday", nil)];
         weekdayTextArray = _weekdayTextArray;
 
         [self drawView];
@@ -157,7 +158,7 @@
     NSMutableArray *_weekdayLabelArray = [[NSMutableArray alloc] init];
     NSMutableArray *_weekdayImageViewArray = [[NSMutableArray alloc] init];
 
-    for (int i = 0; i < 7; i ++) {
+    for (int i = 0; i < WEEK_DAYS_COUNT; i ++) {
         UIView *weekdayView = [[UIView alloc] initWithFrame:CGRectMake(MARGIN_LEFT + weekDayViewWidth * i, 0, weekDayViewWidth, weekDayViewHeight)];
         UILabel *weekdayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, weekDayViewWidth, floorf(weekDayViewHeight / 2))];
         weekdayLabel.text = [weekdayTextArray objectAtIndex:i];

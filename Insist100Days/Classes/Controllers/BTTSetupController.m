@@ -36,6 +36,11 @@ typedef NS_ENUM(NSUInteger, BTT_MENU_ITEM_INDEX)
             NSLocalizedString(@"menu item switch task", nil),
             NSLocalizedString(@"menu item statistics", nil),
             nil];
+
+    UITableView *settingsTableView = [[UITableView alloc] init];
+    settingsTableView.dataSource = self;
+    settingsTableView.delegate = self;
+    [self.view addSubview:settingsTableView];
 //    UIButton *rightBarButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 18)];
 //    [rightBarButton setTitle:NSLocalizedString(@"return", nil) forState:UIControlStateNormal];
 //    [rightBarButton addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchDown];

@@ -20,3 +20,17 @@
 "save success" = "Save Successful!";
 "save failed" = "Save Failed!";
 "I know it" = "I Know It!";
+"checked" = "Checked!";
+"unchecked" = "Unchecked!";
+"not start" = "Not start!";
+"date" = "Date:";
+"days" = "Days:";
+"checkin" = "Checkin";
+
+"sunday" = "sun";
+"monday" = "mon";
+"tuesday" = "tue";
+"wednesday" = "wed";
+"thursday" = "thu";
+"friday" = "fri";
+"saturday" = "sat";

@@ -11,6 +11,7 @@
 #import "BTTTaskDao.h"
 #import "BTTEnums.h"
 #import "BTTLogger.h"
+#import "BTTConfig.h"
 
 #define TASK_TITLE_MAX_LENGTH 10
 
@@ -136,14 +137,13 @@
         task.updatedTime = now;
         task.beginTime = now;
         //100天以后
-        NSTimeInterval secondsPerDay = 99 * 24 * 60 * 60;
+        NSTimeInterval secondsPerDay = 99 * PER_DAY_INTERVAL;
         task.endTime = [now dateByAddingTimeInterval: secondsPerDay];
         //默认为 进行中
         task.status = [[NSNumber alloc] initWithInt:BTT_TASK_DOING];
         task.current = [[NSNumber alloc] initWithUnsignedInteger:BTT_NO];
         task.checkedDays = [[NSNumber alloc] initWithInt:0];
-        //第一天
-        task.totalDays = [[NSNumber alloc] initWithInt:100];
+        task.totalDays = [[NSNumber alloc] initWithInt:BTT_INSIST_DAYS_COUNT];
 
         BTTTaskDao *taskDao = [[BTTTaskDao alloc] init];
         BOOL result = [taskDao save:task];

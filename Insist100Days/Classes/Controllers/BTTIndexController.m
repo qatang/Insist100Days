@@ -15,6 +15,7 @@
 #import "BTTTaskItemDao.h"
 #import "BTTEnums.h"
 #import "BTTWeekView.h"
+#import "BTTConfig.h"
 
 @interface BTTIndexController()
 
@@ -96,11 +97,11 @@
     NSDate *now = [NSDate new];
     currentDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:now];
 
-    NSTimeInterval yesterdayInterval = 24 * 60 * 60 * -1;
+    NSTimeInterval yesterdayInterval = PER_DAY_INTERVAL * -1;
     NSDate *yesterday = [now initWithTimeIntervalSinceNow:yesterdayInterval];
     previousDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:yesterday];
 
-    NSTimeInterval tomorrowInterval = 24 * 60 * 60 * 1;
+    NSTimeInterval tomorrowInterval = PER_DAY_INTERVAL * 1;
     NSDate *tomorrow = [now initWithTimeIntervalSinceNow:tomorrowInterval];
     nextDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:tomorrow];
 
@@ -114,29 +115,29 @@
     } else if (todayCurrentDays == 1 + 1) {
         [slideView bindLeftSwipeRecognizer:previous];
     }
-    if (todayCurrentDays == 100) {
+    if (todayCurrentDays == BTT_INSIST_DAYS_COUNT) {
         [slideView bindRightSwipeRecognizer:current];
-    } else if (todayCurrentDays == 100 - 1) {
+    } else if (todayCurrentDays == BTT_INSIST_DAYS_COUNT - 1) {
         [slideView bindRightSwipeRecognizer:next];
     }
 
     if (taskItem && taskItem.checked) {
         currentCheckinButton.hidden = YES;
         currentCheckinLabel.hidden = NO;
-        currentCheckinLabel.text = @"checked";
+        currentCheckinLabel.text = NSLocalizedString(@"checked", nil);
     } else {
         currentCheckinButton.hidden = NO;
         currentCheckinLabel.hidden = YES;
-        currentCheckinLabel.text = @"unchecked";
+        currentCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
     }
 
     if (previousTaskItem && previousTaskItem.checked) {
-        previousCheckinLabel.text = @"checked";
+        previousCheckinLabel.text = NSLocalizedString(@"checked", nil);
     } else {
-        previousCheckinLabel.text = @"unchecked";
+        previousCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
     }
 
-    nextCheckinLabel.text = @"not start";
+    nextCheckinLabel.text = NSLocalizedString(@"not start", nil);
 
     viewArray = [[NSArray alloc] initWithObjects:previous, current, next, nil];
 
@@ -145,7 +146,7 @@
 }
 
 - (void)drawView {
-    UIView *topView = [self.view.subviews objectAtIndex:0];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 80)];
 //    topView.backgroundColor = [UIColor redColor];
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 4, 280, 30)];
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -156,27 +157,29 @@
     [topView addSubview:titleLabel];
     [topView addSubview:weekView];
 
-    UIView *middleView = [self.view.subviews objectAtIndex:1];
-    middleMainView = [middleView.subviews objectAtIndex:0];
+    UIView *middleView = [[UIView alloc] initWithFrame:CGRectMake(0, 80, SCREEN_WIDTH, SCREEN_HEIGHT - 80)];
 
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 2)];
-    lineView.backgroundColor = [UIColor grayColor];
+    UIView *middleBottomView = [[UIView alloc] initWithFrame:CGRectMake(0, middleView.bounds.size.height - 60, SCREEN_WIDTH, 60)];
 
-    UIView *middleBottomView = [middleView.subviews objectAtIndex:1];
-
-    UIButton *middleBottomTodayButton = [[UIButton alloc] initWithFrame:CGRectMake(16, 13, 24, 24)];
+    UIButton *middleBottomTodayButton = [[UIButton alloc] initWithFrame:CGRectMake(16, 6, 24, 24)];
     [middleBottomTodayButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [middleBottomTodayButton addTarget:self action:@selector(backToday) forControlEvents:UIControlEventTouchDown];
     [middleBottomView addSubview:middleBottomTodayButton];
 
-    UIButton *middleBottomSettingsButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 13, 24, 24)];
+    UIButton *middleBottomSettingsButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 6, 24, 24)];
     [middleBottomSettingsButton setBackgroundImage:[UIImage imageNamed:@"settings"] forState:UIControlStateNormal];
     [middleBottomSettingsButton addTarget:self action:@selector(gotoSetup) forControlEvents:UIControlEventTouchDown];
     [middleBottomView addSubview:middleBottomSettingsButton];
 
+    middleMainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, middleView.bounds.size.height - 60)];
+
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 2)];
+    lineView.backgroundColor = [UIColor grayColor];
+
+
     UILabel *currentDateStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 80, 30)];
     currentDateStringLabel.textAlignment = NSTextAlignmentRight;
-    currentDateStringLabel.text = @"今天是：";
+    currentDateStringLabel.text = NSLocalizedString(@"date", nil);
 
     currentDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 60, 200, 30)];
     currentDateLabel.textColor = [UIColor redColor];
@@ -184,21 +187,21 @@
 
     UILabel *currentCountStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 80, 30)];
     currentCountStringLabel.textAlignment = NSTextAlignmentRight;
-    currentCountStringLabel.text = @"天数：";
+    currentCountStringLabel.text = NSLocalizedString(@"days", nil);
 
     currentCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];
     currentCountLabel.textColor = [UIColor redColor];
     currentCountLabel.textAlignment = NSTextAlignmentLeft;
 
-    currentCheckinButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 140, 100, 30)];
-    [currentCheckinButton setTitle:@"checkin" forState:UIControlStateNormal];
+    currentCheckinButton = [[UIButton alloc] initWithFrame:CGRectMake(100, middleMainView.bounds.size.height - 40, 100, 30)];
+    [currentCheckinButton setTitle:NSLocalizedString(@"checkin", nil) forState:UIControlStateNormal];
     currentCheckinButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     currentCheckinButton.backgroundColor = [UIColor redColor];
     [currentCheckinButton addTarget:self action:@selector(checkin) forControlEvents:UIControlEventTouchDown];
 
-    currentCheckinLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 140, 100, 30)];
+    currentCheckinLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, middleMainView.bounds.size.height - 40, 100, 30)];
     currentCheckinLabel.textAlignment = NSTextAlignmentCenter;
-    currentCheckinLabel.font = [UIFont boldSystemFontOfSize:12];
+    currentCheckinLabel.font = [UIFont boldSystemFontOfSize:14];
 
     current = [[UIView alloc] initWithFrame:middleMainView.bounds];
     current.backgroundColor = [UIColor whiteColor];
@@ -212,7 +215,7 @@
 
     UILabel *previousDateStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 80, 30)];
     previousDateStringLabel.textAlignment = NSTextAlignmentRight;
-    previousDateStringLabel.text = @"今天是：";
+    previousDateStringLabel.text = NSLocalizedString(@"date", nil);
 
     previousDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 60, 200, 30)];
     previousDateLabel.textColor = [UIColor redColor];
@@ -220,7 +223,7 @@
 
     UILabel *previousCountStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 80, 30)];
     previousCountStringLabel.textAlignment = NSTextAlignmentRight;
-    previousCountStringLabel.text = @"天数：";
+    previousCountStringLabel.text = NSLocalizedString(@"days", nil);
 
     previousCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];
     previousCountLabel.textColor = [UIColor redColor];
@@ -231,9 +234,9 @@
 //    previousCheckinButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
 //    previousCheckinButton.backgroundColor = [UIColor redColor];
 
-    previousCheckinLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 140, 100, 30)];
+    previousCheckinLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, middleMainView.bounds.size.height - 40, 100, 30)];
     previousCheckinLabel.textAlignment = NSTextAlignmentCenter;
-    previousCheckinLabel.font = [UIFont boldSystemFontOfSize:12];
+    previousCheckinLabel.font = [UIFont boldSystemFontOfSize:14];
 
     previous = [[UIView alloc] initWithFrame:middleMainView.bounds];
     previous.backgroundColor = [UIColor whiteColor];
@@ -247,7 +250,7 @@
 
     UILabel *nextDateStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 80, 30)];
     nextDateStringLabel.textAlignment = NSTextAlignmentRight;
-    nextDateStringLabel.text = @"今天是：";
+    nextDateStringLabel.text = NSLocalizedString(@"date", nil);
 
     nextDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 60, 200, 30)];
     nextDateLabel.textColor = [UIColor redColor];
@@ -255,7 +258,7 @@
 
     UILabel *nextCountStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 80, 30)];
     nextCountStringLabel.textAlignment = NSTextAlignmentRight;
-    nextCountStringLabel.text = @"天数：";
+    nextCountStringLabel.text = NSLocalizedString(@"days", nil);
 
     nextCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];
     nextCountLabel.textColor = [UIColor redColor];
@@ -266,9 +269,9 @@
 //    nextCheckinButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
 //    nextCheckinButton.backgroundColor = [UIColor redColor];
 
-    nextCheckinLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 140, 100, 30)];
+    nextCheckinLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, middleMainView.bounds.size.height - 40, 100, 30)];
     nextCheckinLabel.textAlignment = NSTextAlignmentCenter;
-    nextCheckinLabel.font = [UIFont boldSystemFontOfSize:12];
+    nextCheckinLabel.font = [UIFont boldSystemFontOfSize:14];
 
     next = [[UIView alloc] initWithFrame:middleMainView.bounds];
     next.backgroundColor = [UIColor whiteColor];
@@ -285,6 +288,12 @@
 
     [middleMainView addSubview:slideView];
     [middleMainView addSubview:lineView];
+
+    [middleView addSubview:middleMainView];
+    [middleView addSubview:middleBottomView];
+
+    [self.view addSubview:topView];
+    [self.view addSubview:middleView];
 
 }
 
@@ -319,7 +328,7 @@
 
     currentCheckinButton.hidden = YES;
     currentCheckinLabel.hidden = NO;
-    currentCheckinLabel.text = @"checked";
+    currentCheckinLabel.text = NSLocalizedString(@"checked", nil);
 
     NSArray *weekTaskItemArray = [self loadWeekViewData:now todayCurrentDays:todayCurrentDays];
     [weekView setWeekTaskItemArray:weekTaskItemArray];
@@ -344,9 +353,9 @@
 #pragma mark - BTTHorizontalSlideViewDelegate method
 - (void)setupViewData:(NSInteger)selectedIndex countIndex:(NSInteger)countIndex {
     NSDate *now = [NSDate new];
-    NSTimeInterval currentInterval = 24 * 60 * 60 * countIndex;
-    NSTimeInterval previousInterval = 24 * 60 * 60 * (countIndex - 1);
-    NSTimeInterval nextInterval = 24 * 60 * 60 * (countIndex + 1);
+    NSTimeInterval currentInterval = PER_DAY_INTERVAL * countIndex;
+    NSTimeInterval previousInterval = PER_DAY_INTERVAL * (countIndex - 1);
+    NSTimeInterval nextInterval = PER_DAY_INTERVAL * (countIndex + 1);
     NSDate *currentDate = [now initWithTimeIntervalSinceNow:currentInterval];
     NSDate *previousDate = [now initWithTimeIntervalSinceNow:previousInterval];
     NSDate *nextDate = [now initWithTimeIntervalSinceNow:nextInterval];
@@ -374,24 +383,24 @@
             nextDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:nextDate];
             nextCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
             if (item && item.checked) {
-                nextCheckinLabel.text = @"checked";
+                nextCheckinLabel.text = NSLocalizedString(@"checked", nil);
             } else {
                 if (countIndex == 0 || [[currentDate laterDate:now] isEqualToDate:currentDate]) {
-                    nextCheckinLabel.text = @"not start";
+                    nextCheckinLabel.text = NSLocalizedString(@"not start", nil);
                 } else {
-                    nextCheckinLabel.text = @"unchecked";
+                    nextCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
                 }
             }
         } else if (v.tag < 0) {
             previousDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:nextDate];
             previousCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
             if (item && item.checked) {
-                previousCheckinLabel.text = @"checked";
+                previousCheckinLabel.text = NSLocalizedString(@"checked", nil);;
             } else {
                 if (countIndex == 0 || [[currentDate laterDate:now] isEqualToDate:now]) {
-                    previousCheckinLabel.text = @"unchecked";
+                    previousCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
                 } else {
-                    previousCheckinLabel.text = @"not start";
+                    previousCheckinLabel.text = NSLocalizedString(@"not start", nil);
                 }
             }
         } else {
@@ -400,27 +409,27 @@
             if (item && item.checked) {
                 currentCheckinButton.hidden = YES;
                 currentCheckinLabel.hidden = NO;
-                currentCheckinLabel.text = @"checked";
+                currentCheckinLabel.text = NSLocalizedString(@"checked", nil);
             } else {
                 if (countIndex == -1) {
                     currentCheckinButton.hidden = NO;
                     currentCheckinLabel.hidden = YES;
-                    currentCheckinLabel.text = @"unchecked";
+                    currentCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
                 } else {
                     if ([[currentDate laterDate:now] isEqualToDate:now]) {
                         currentCheckinButton.hidden = YES;
                         currentCheckinLabel.hidden = NO;
-                        currentCheckinLabel.text = @"unchecked";
+                        currentCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
                     } else {
                         currentCheckinButton.hidden = YES;
                         currentCheckinLabel.hidden = NO;
-                        currentCheckinLabel.text = @"not start";
+                        currentCheckinLabel.text = NSLocalizedString(@"not start", nil);
                     }
                 }
             }
         }
 
-        BOOL isEnd = currentDays == 100 ? YES : NO;
+        BOOL isEnd = currentDays == BTT_INSIST_DAYS_COUNT ? YES : NO;
         [slideView switchView:v isEnd:isEnd];
     } else if (selectedIndex < 0) {
         NSMutableArray *viewArrayTmp = [NSMutableArray array];
@@ -437,24 +446,24 @@
             nextDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:previousDate];
             nextCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
             if (item && item.checked) {
-                nextCheckinLabel.text = @"checked";
+                nextCheckinLabel.text = NSLocalizedString(@"checked", nil);
             } else {
                 if (countIndex == 0 || [[currentDate laterDate:now] isEqualToDate:now]) {
-                    nextCheckinLabel.text = @"unchecked";
+                    nextCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
                 } else {
-                    nextCheckinLabel.text = @"not start";
+                    nextCheckinLabel.text = NSLocalizedString(@"not start", nil);
                 }
             }
         } else if (v.tag < 0) {
             previousDateLabel.text = [BTTDateUtil convertDateToDateStringByDefaultPattern:previousDate];
             previousCountLabel.text = [NSString stringWithFormat:@"%d", currentDays];
             if (item && item.checked) {
-                previousCheckinLabel.text = @"checked";
+                previousCheckinLabel.text = NSLocalizedString(@"checked", nil);
             } else {
                 if (countIndex == 0 || [[currentDate laterDate:now] isEqualToDate:now]) {
-                    previousCheckinLabel.text = @"unchecked";
+                    previousCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
                 } else {
-                    previousCheckinLabel.text = @"not start";
+                    previousCheckinLabel.text = NSLocalizedString(@"not start", nil);
                 }
             }
         } else {
@@ -463,21 +472,21 @@
             if (item && item.checked) {
                 currentCheckinButton.hidden = YES;
                 currentCheckinLabel.hidden = NO;
-                currentCheckinLabel.text = @"checked";
+                currentCheckinLabel.text = NSLocalizedString(@"checked", nil);
             } else {
                 if (countIndex == 1) {
                     currentCheckinButton.hidden = NO;
                     currentCheckinLabel.hidden = YES;
-                    currentCheckinLabel.text = @"unchecked";
+                    currentCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
                 } else {
                     if ([[currentDate laterDate:now] isEqualToDate:now]) {
                         currentCheckinButton.hidden = YES;
                         currentCheckinLabel.hidden = NO;
-                        currentCheckinLabel.text = @"unchecked";
+                        currentCheckinLabel.text = NSLocalizedString(@"unchecked", nil);
                     } else {
                         currentCheckinButton.hidden = YES;
                         currentCheckinLabel.hidden = NO;
-                        currentCheckinLabel.text = @"not start";
+                        currentCheckinLabel.text = NSLocalizedString(@"not start", nil);
                     }
                 }
             }
@@ -495,13 +504,13 @@
     int weekday = [comps weekday];
 //    NSLog(@"currentDate day : %d", weekday);
 //    NSLog(@"currentDate : %@", [BTTDateUtil convertDateToDateStringByDefaultPattern:currentDate]);
-    NSDate *firstWeekDate = [currentDate dateByAddingTimeInterval:(-1 * weekday + 1) * 24 * 60 * 60];
+    NSDate *firstWeekDate = [currentDate dateByAddingTimeInterval:(-1 * weekday + 1) * PER_DAY_INTERVAL];
 //    NSLog(@"first currentDate : %@", [BTTDateUtil convertDateToDateStringByDefaultPattern:firstWeekDate]);
 //    NSLog(@"last currentDate : %@", [BTTDateUtil convertDateToDateStringByDefaultPattern:[currentDate initWithTimeIntervalSinceNow:24 * 60 * 60 * (7 - weekday)]]);
 //    NSLog(@"first currentDate days : %d", [BTTDateUtil daysBetweenTwoDatesByEra:self.task.beginTime toDate:firstWeekDate] + 1);
     NSMutableArray *_weekTaskItemArray = [[NSMutableArray alloc] init];
-    for (int i =0; i < 7; i ++) {
-        NSDate *weekDate = [firstWeekDate dateByAddingTimeInterval:i * 24 * 60 * 60];
+    for (int i =0; i < WEEK_DAYS_COUNT; i ++) {
+        NSDate *weekDate = [firstWeekDate dateByAddingTimeInterval:i * PER_DAY_INTERVAL];
 //        NSLog(@"weekdate : %@", [BTTDateUtil convertDateToDateStringByDefaultPattern:weekDate]);
         NSUInteger weekDateCurrentDays = [BTTDateUtil daysBetweenTwoDatesByEra:self.task.beginTime toDate:weekDate] + 1;
 //        NSLog(@"weekDateCurrentDays : %d", weekDateCurrentDays);
@@ -512,7 +521,7 @@
             _taskItem.checked = [NSNumber numberWithInteger:0];
         }
 
-        if (weekDateCurrentDays <= 0 || weekDateCurrentDays > 100) {
+        if (weekDateCurrentDays <= 0 || weekDateCurrentDays > BTT_INSIST_DAYS_COUNT) {
             _taskItem.in100days = NO;
         } else {
             _taskItem.in100days = YES;

@@ -21,6 +21,15 @@
 
 @synthesize db;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        db = [[BTTDatabaseUtil shared] db];
+    }
+
+    return self;
+}
+
 - (BTTTaskItem *) convertFromRs:(FMResultSet *)rs {
     BTTTaskItem *taskItem = [[BTTTaskItem alloc] init];
     
@@ -33,13 +42,6 @@
     taskItem.currentDays = [rs objectForColumnName:@"current_days"];
     
     return taskItem;
-}
-
-- (FMDatabase *)db {
-    if (!db) {
-        db = [BTTDatabaseUtil connectionFromDatabase];
-    }
-    return db;
 }
 
 - (BOOL)save:(BTTTaskItem *)taskItem {

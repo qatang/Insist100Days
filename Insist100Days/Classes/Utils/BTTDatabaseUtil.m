@@ -12,26 +12,18 @@
 
 @implementation BTTDatabaseUtil
 
-+ (FMDatabase *)connectionFromDatabase
-{
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentDirectory = [paths objectAtIndex:0];
-//    NSString *dbPath = [documentDirectory stringByAppendingPathComponent:BTT_DB_FILENAME];
-//
-//    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-//    if (![db open]) {
-//        //LNLOG_ERROR(@"Open database failed, location is: %@", dbPath);
-//        return nil;
-//    }
-
-    return self.shared.db;
-}
-
 @synthesize db;
 
 - (id)init {
     if (self = [super init]) {
-        [self establishConnection];
+        if ([self establishConnection]) {
+            int versionCurrent = [BTTDatabaseUtil schemaVersion:self.db];
+            if (versionCurrent == 0) {
+                [BTTDatabaseUtil initSchema:db];
+            } else {
+                [BTTDatabaseUtil migrateDB:db fromVersion:versionCurrent toVersion:BTT_DB_SCHEMA_VERSION];
+            }
+        }
     }
     return self;
 }
@@ -52,15 +44,14 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [paths objectAtIndex:0];
     NSString *dbPath = [documentDirectory stringByAppendingPathComponent:BTT_DB_FILENAME];
-    if(!dbPath){
-//        BTTLOG_ERROR(@"dbpath MUST be set.");
+    if (!dbPath) {
+        BTTLOG_ERROR(@"dbpath MUST be set.");
         return NO;
     } else {
         self.db = [FMDatabase databaseWithPath:dbPath];
-        if(![self.db open]){
-//            BTTLOG_ERROR(@"Failed to establish connection to %@", dbPath);
-        } else {
-//            BTTLOG_INFO(@"Connection established to %@", dbPath);
+        if (![self.db open]) {
+            BTTLOG_ERROR(@"Failed to establish connection to %@", dbPath);
+            return NO;
         }
 
         self.db.logsErrors = YES;
@@ -80,19 +71,6 @@
         // todo
     }
     return NO;
-}
-
-- (BOOL)isTableExist:(NSString *)tableName {
-
-    FMResultSet *rs = [self.db executeQuery:@"select [sql] from sqlite_master where [type] = 'table' and lower(name) = ?", tableName];
-
-    //if at least one next exists, table exists
-    BOOL returnBool = [rs next];
-
-    //close and free object
-    [rs close];
-
-    return returnBool;
 }
 
 + (int)schemaVersion:(FMDatabase *)db

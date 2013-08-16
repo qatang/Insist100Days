@@ -15,15 +15,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    FMDatabase *db = [[BTTDatabaseUtil shared]db];
-
-    int versionCurrent = [BTTDatabaseUtil schemaVersion:db];
-    if (versionCurrent == 0) {
-        [BTTDatabaseUtil initSchema:db];
-    } else {
-        [BTTDatabaseUtil migrateDB:db fromVersion:versionCurrent toVersion:BTT_DB_SCHEMA_VERSION];
-    }
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

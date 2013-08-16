@@ -22,6 +22,15 @@
 
 @synthesize db;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        db = [[BTTDatabaseUtil shared] db];
+    }
+
+    return self;
+}
+
 - (BTTTask *) convertFromRs:(FMResultSet *)rs {
     BTTTask *task = [[BTTTask alloc] init];
     
@@ -38,13 +47,6 @@
     task.totalDays = [rs objectForColumnName:@"total_days"];
     
     return task;
-}
-
-- (FMDatabase *)db {
-    if (!db) {
-        db = [BTTDatabaseUtil connectionFromDatabase];
-    }
-    return db;
 }
 
 - (BOOL)save:(BTTTask *)task {    

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		75E91F8983CF424FA9B1CF96 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC1607FA7B34452A8AAB88B /* libPods.a */; };
-		80EF385B1772A92600A28091 /* BTTIndexController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80EF385A1772A92600A28091 /* BTTIndexController.xib */; };
-		80EF385D1772DB0A00A28091 /* BTTSetupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80EF385C1772DB0A00A28091 /* BTTSetupController.xib */; };
 		80EF38641772E12A00A28091 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80EF38661772E12A00A28091 /* Localizable.strings */; };
 		80EF386C1772F74E00A28091 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80EF386B1772F74E00A28091 /* QuartzCore.framework */; };
 		C660B0CF1DCA7BF37D228946 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C660B303ED3C2ACB9EA44C32 /* InfoPlist.strings */; };
@@ -69,10 +67,8 @@
 
 /* Begin PBXFileReference section */
 		5AC1607FA7B34452A8AAB88B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		80EF385A1772A92600A28091 /* BTTIndexController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BTTIndexController.xib; sourceTree = SOURCE_ROOT; };
-		80EF385C1772DB0A00A28091 /* BTTSetupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BTTSetupController.xib; sourceTree = SOURCE_ROOT; };
-		80EF38651772E12A00A28091 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		80EF38691772E18A00A28091 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		80EF38651772E12A00A28091 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		80EF38691772E18A00A28091 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		80EF386A1772E18A00A28091 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		80EF386B1772F74E00A28091 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8E1839146C294F5BA4AC5C5E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -385,8 +381,6 @@
 		C660BFC192C8C77A3CFE976A /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				80EF385A1772A92600A28091 /* BTTIndexController.xib */,
-				80EF385C1772DB0A00A28091 /* BTTSetupController.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -448,10 +442,8 @@
 				C660B9858531A007887F75EF /* Default.png in Resources */,
 				C660BE18D5AB6C4D2CAA524F /* Default@2x.png in Resources */,
 				C660BCBCA48FF7EDBC491414 /* Default-568h@2x.png in Resources */,
-				80EF385B1772A92600A28091 /* BTTIndexController.xib in Resources */,
 				C660B0FD29576A796100812F /* setup.png in Resources */,
 				C660B30B60C0ABE23EC06357 /* setup@2x.png in Resources */,
-				80EF385D1772DB0A00A28091 /* BTTSetupController.xib in Resources */,
 				80EF38641772E12A00A28091 /* Localizable.strings in Resources */,
 				C660B694DEAD39E2764273C8 /* textfield_label_bg.png in Resources */,
 				C660B9214F030C720B57A089 /* textfield_label_bg@2x.png in Resources */,
