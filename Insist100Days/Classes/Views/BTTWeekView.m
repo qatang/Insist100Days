@@ -191,19 +191,17 @@
             weekdayLabel.textColor = [UIColor blackColor];
         }
 
+        weekdayImageView.image = nil;
         if (taskItem.in100days) {
             if (taskItem.afterToday) {
                 weekdayImageView.image = [UIImage imageNamed:@"warning"];
             } else {
-                weekdayImageView.image = nil;
                 if (taskItem.checked == [NSNumber numberWithInteger:1]) {
                     weekdayImageView.image = [UIImage imageNamed:@"check_mark"];
                 } else {
                     weekdayImageView.image = [UIImage imageNamed:@"cancel"];
                 }
             }
-        } else {
-            weekdayImageView.image = nil;
         }
     }
 }

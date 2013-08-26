@@ -51,6 +51,7 @@
 		C660BC6D5822D6FC707DAEF1 /* navbar-button-return-gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA33F4D814F15C653A7A /* navbar-button-return-gray@2x.png */; };
 		C660BCBCA48FF7EDBC491414 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B598773E423E1080EFAD /* Default-568h@2x.png */; };
 		C660BCFFC8AFCA3F1C01AB67 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B443854B73C446FC08D4 /* cancel@2x.png */; };
+		C660BD160461216978A50524 /* BTTHorizontalSlideInsideView.m in Sources */ = {isa = PBXBuildFile; fileRef = C660B015EA063FE13D018A50 /* BTTHorizontalSlideInsideView.m */; };
 		C660BD952CF90BBBA23DABC6 /* navbar-button-edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B7EED4BE78D34E225FF1 /* navbar-button-edit@2x.png */; };
 		C660BDC48321098C32BC3F60 /* BTTSwitchTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = C660BDC240F209041C73BC00 /* BTTSwitchTaskController.m */; };
 		C660BE18D5AB6C4D2CAA524F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C660BA1D03E29CB4E991BAFA /* Default@2x.png */; };
@@ -72,6 +73,7 @@
 		80EF386A1772E18A00A28091 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		80EF386B1772F74E00A28091 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8E1839146C294F5BA4AC5C5E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		C660B015EA063FE13D018A50 /* BTTHorizontalSlideInsideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTHorizontalSlideInsideView.m; sourceTree = "<group>"; };
 		C660B025CEB7CFDC9293C195 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
 		C660B07269B45CA9736AA317 /* BTTTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskItem.m; sourceTree = "<group>"; };
 		C660B09BD6A42EED465464DD /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		C660BBB038CC6608CC792DC2 /* navbar-background-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background-green.png"; sourceTree = "<group>"; };
 		C660BBC9C2AB770C901D56A2 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		C660BC1DA3A02A374F79BC07 /* navbar-button-return-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-button-return-green@2x.png"; sourceTree = "<group>"; };
+		C660BC2D61B62DD783098E7F /* BTTHorizontalSlideInsideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTHorizontalSlideInsideView.h; sourceTree = "<group>"; };
 		C660BC8702F326502014AAC5 /* BTTDatabaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTDatabaseUtil.h; sourceTree = "<group>"; };
 		C660BCA23B6CDA17A54CE540 /* BTTTaskDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTTaskDao.h; sourceTree = "<group>"; };
 		C660BCA3DFA7875F81D5B3B5 /* payout_pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payout_pen.png; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				C660BF215A24703AB15457E4 /* BTTHorizontalSlideView.h */,
 				C660B91E018FE2A3EC29D248 /* BTTWeekView.m */,
 				C660B11DF55D83886DEF8C90 /* BTTWeekView.h */,
+				C660B015EA063FE13D018A50 /* BTTHorizontalSlideInsideView.m */,
+				C660BC2D61B62DD783098E7F /* BTTHorizontalSlideInsideView.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -530,6 +535,7 @@
 				C660B98F71CD4F3FB0469B05 /* BTTListTaskController.m in Sources */,
 				C660BDC48321098C32BC3F60 /* BTTSwitchTaskController.m in Sources */,
 				C660BBA01B610AAE5F689D7B /* BTTWeekView.m in Sources */,
+				C660BD160461216978A50524 /* BTTHorizontalSlideInsideView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

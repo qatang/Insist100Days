@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "BTTHorizontalSlideView.h"
+#import "BTTHorizontalSlideInsideView.h"
 
 
-@interface BTTIndexController : UIViewController <BTTHorizontalSlideViewDelegate>
+@interface BTTIndexController : UIViewController <BTTHorizontalSlideViewDelegate, BTTHorizontalSlideInsideViewDelegate>
 @end
