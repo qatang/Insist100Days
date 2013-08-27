@@ -10,6 +10,7 @@
 #import "BTTCreateTaskController.h"
 #import "BTTListTaskController.h"
 #import "BTTSwitchTaskController.h"
+#import "BTTStatisticsTaskController.h"
 
 #define MENU_ITEM_HEIGHT 55
 
@@ -91,8 +92,7 @@ typedef NS_ENUM(NSUInteger, BTT_MENU_ITEM_INDEX)
             break;
         }
         case BTT_MENU_ITEM_STATISTICS: {
-//            [self.parentNavigationController pushViewController:[[BTTSettingsViewController alloc] init] animated:true];
-//            [self.sidePanelController showCenterPanelAnimated:YES];
+            [self.navigationController pushViewController:[[BTTStatisticsTaskController alloc] init] animated:true];
             break;
         }
         default: {

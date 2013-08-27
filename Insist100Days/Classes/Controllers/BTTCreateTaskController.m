@@ -137,7 +137,7 @@
         task.updatedTime = now;
         task.beginTime = now;
         //100天以后
-        NSTimeInterval secondsPerDay = 99 * PER_DAY_INTERVAL;
+        NSTimeInterval secondsPerDay = (BTT_INSIST_DAYS_COUNT - 1) * PER_DAY_INTERVAL;
         task.endTime = [now dateByAddingTimeInterval: secondsPerDay];
         //默认为 进行中
         task.status = [[NSNumber alloc] initWithInt:BTT_TASK_DOING];

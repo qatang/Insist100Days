@@ -26,6 +26,12 @@
 "date" = "Date:";
 "days" = "Days:";
 "checkin" = "Checkin";
+"task status doing" = "doing";
+"task status done" = "done";
+"total days" = "TotalDays:";
+"current days" = "CurrentDays:";
+"checked days" = "CheckedDays:";
+"unchecked days" = "UncheckedDays:";
 
 "sunday" = "sun";
 "monday" = "mon";

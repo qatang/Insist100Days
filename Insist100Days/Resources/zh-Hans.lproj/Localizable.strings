@@ -26,6 +26,12 @@
 "date" = "日期：";
 "days" = "天数：";
 "checkin" = "完成任务";
+"task status doing" = "进行中";
+"task status done" = "已完成";
+"total days" = "总天数：";
+"current days" = "当前天数：";
+"checked days" = "完成天数：";
+"unchecked days" = "未完成天数：";
 
 "sunday" = "日";
 "monday" = "一";

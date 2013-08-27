@@ -8,6 +8,8 @@
 
 #import "BTTTaskItemDao.h"
 #import "BTTDatabaseUtil.h"
+#import "BTTTask.h"
+#import "BTTTaskDao.h"
 
 @interface BTTTaskItemDao()
 
@@ -50,7 +52,14 @@
     NSNumber *createdTime = [NSNumber numberWithLong:[taskItem.createdTime timeIntervalSince1970]];
     NSNumber *updatedTime = [NSNumber numberWithLong:[taskItem.updatedTime timeIntervalSince1970]];
     result = [self.db executeUpdate:@"INSERT INTO btt_task_item(item_id, task_id, memo, created_time, updated_time, checked, current_days) VALUES (NULL, ?, ?, ?, ?, ?, ?)", taskItem.taskId, taskItem.memo , createdTime, updatedTime,taskItem.checked, taskItem.currentDays];
-    if (result) {
+
+    BTTTaskDao *taskDao = [[BTTTaskDao alloc] init];
+    BTTTask *task = [taskDao get:taskItem.taskId];
+    int checkedDays = task.checkedDays.intValue + 1;
+
+    BOOL result2 = [self.db executeUpdate:@"UPDATE btt_task SET checked_days=? WHERE task_id=?", [NSNumber numberWithInteger:checkedDays], task.taskId];
+
+    if (result && result2) {
         [self.db commit];
     } else {
         [self.db rollback];

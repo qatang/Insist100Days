@@ -97,7 +97,7 @@
 }
 
 - (NSArray *)list:(int)offset size:(int)size {
-    FMResultSet *rs = [self.db executeQuery:@"SELECT * FROM btt_task ORDER BY created_time DESC LIMIT ?, ?", [NSNumber numberWithInt:offset], [NSNumber numberWithInt:size]];
+    FMResultSet *rs = [self.db executeQuery:@"SELECT * FROM btt_task ORDER BY current DESC, status, created_time DESC LIMIT ?, ?", [NSNumber numberWithInt:offset], [NSNumber numberWithInt:size]];
     NSMutableArray *array = [[NSMutableArray alloc] init];
     while ([rs next]) {
         BTTTask *task = [self convertFromRs:rs];
