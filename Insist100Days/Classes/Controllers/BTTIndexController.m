@@ -17,6 +17,7 @@
 #import "BTTWeekView.h"
 #import "BTTConfig.h"
 #import "BTTHorizontalSlideInsideView.h"
+#import "BTTFirstBloodViewController.h"
 
 @interface BTTIndexController()
 
@@ -207,6 +208,7 @@
 
 - (void)viewDidLoad {
     NSDate *now = [NSDate date];
+
     [self loadData:now];
     [self drawView];
     [self setValue:now];
@@ -475,5 +477,13 @@
     NSArray *weekTaskItemArray = [self loadWeekViewData:now todayCurrentDays:todayCurrentDays];
     [weekView setWeekTaskItemArray:weekTaskItemArray];
 }
+
+#pragma mark - BTTGuideViewDelegate
+- (void) guideViewDidDisappear{
+    BTTFirstBloodViewController *firstBloodViewController = [[BTTFirstBloodViewController alloc] init];
+    [self presentViewController:firstBloodViewController animated:NO completion:nil];
+
+}
+
 
 @end

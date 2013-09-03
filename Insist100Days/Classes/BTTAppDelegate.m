@@ -7,9 +7,9 @@
 //
 
 #import "BTTAppDelegate.h"
-#import "BTTIndexController.h"
 #import "BTTDatabaseUtil.h"
 #import "BTTConfig.h"
+#import "BTTGuideViewController.h"
 
 @implementation BTTAppDelegate
 
@@ -20,11 +20,22 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
-    BTTIndexController *indexController = [[BTTIndexController alloc] init];
+    self.indexController = [[BTTIndexController alloc] init];
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:indexController];
-    self.window.rootViewController = indexController;
+    self.window.rootViewController = self.indexController;
+    [self firstBlood];
 
     return YES;
+}
+
+- (void)firstBlood{
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:KEY_HAS_CREATED_TASK]) {
+        BTTGuideViewController *gvc = [[BTTGuideViewController alloc] initWithCustom];
+        gvc.guideViewDelegate = self.indexController;
+        [gvc presentInViewController:self.window.rootViewController fullScreenLayout:YES];
+    
+    }    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

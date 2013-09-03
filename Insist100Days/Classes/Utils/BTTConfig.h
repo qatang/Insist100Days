@@ -21,3 +21,4 @@
 #define PER_DAY_INTERVAL 24 * 60 * 60
 #define WEEK_DAYS_COUNT 7
 
+#define KEY_HAS_CREATED_TASK @"has_created_task"

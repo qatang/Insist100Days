@@ -10,6 +10,11 @@
 		75E91F8983CF424FA9B1CF96 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC1607FA7B34452A8AAB88B /* libPods.a */; };
 		80EF38641772E12A00A28091 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80EF38661772E12A00A28091 /* Localizable.strings */; };
 		80EF386C1772F74E00A28091 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80EF386B1772F74E00A28091 /* QuartzCore.framework */; };
+		B6F997D617D03E9D004CDE4D /* KxIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F997D117D03E9D004CDE4D /* KxIntroView.m */; };
+		B6F997D717D03E9D004CDE4D /* KxIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F997D317D03E9D004CDE4D /* KxIntroViewController.m */; };
+		B6F997D817D03E9D004CDE4D /* KxIntroViewPage.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F997D517D03E9D004CDE4D /* KxIntroViewPage.m */; };
+		B6F997DB17D03F16004CDE4D /* BTTGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F997DA17D03F16004CDE4D /* BTTGuideViewController.m */; };
+		B6F997DE17D04E40004CDE4D /* BTTFirstBloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F997DD17D04E40004CDE4D /* BTTFirstBloodViewController.m */; };
 		C660B0CF1DCA7BF37D228946 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C660B303ED3C2ACB9EA44C32 /* InfoPlist.strings */; };
 		C660B0FD29576A796100812F /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B9594C1AD1CB993E545A /* setup.png */; };
 		C660B104664DC839D18285FB /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = C660B025CEB7CFDC9293C195 /* warning.png */; };
@@ -75,6 +80,16 @@
 		80EF386A1772E18A00A28091 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		80EF386B1772F74E00A28091 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8E1839146C294F5BA4AC5C5E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		B6F997D017D03E9D004CDE4D /* KxIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxIntroView.h; sourceTree = "<group>"; };
+		B6F997D117D03E9D004CDE4D /* KxIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxIntroView.m; sourceTree = "<group>"; };
+		B6F997D217D03E9D004CDE4D /* KxIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxIntroViewController.h; sourceTree = "<group>"; };
+		B6F997D317D03E9D004CDE4D /* KxIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxIntroViewController.m; sourceTree = "<group>"; };
+		B6F997D417D03E9D004CDE4D /* KxIntroViewPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxIntroViewPage.h; sourceTree = "<group>"; };
+		B6F997D517D03E9D004CDE4D /* KxIntroViewPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxIntroViewPage.m; sourceTree = "<group>"; };
+		B6F997D917D03F16004CDE4D /* BTTGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTGuideViewController.h; sourceTree = "<group>"; };
+		B6F997DA17D03F16004CDE4D /* BTTGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTGuideViewController.m; sourceTree = "<group>"; };
+		B6F997DC17D04E40004CDE4D /* BTTFirstBloodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTFirstBloodViewController.h; sourceTree = "<group>"; };
+		B6F997DD17D04E40004CDE4D /* BTTFirstBloodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTFirstBloodViewController.m; sourceTree = "<group>"; };
 		C660B015EA063FE13D018A50 /* BTTHorizontalSlideInsideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTHorizontalSlideInsideView.m; sourceTree = "<group>"; };
 		C660B025CEB7CFDC9293C195 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
 		C660B07269B45CA9736AA317 /* BTTTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTTaskItem.m; sourceTree = "<group>"; };
@@ -181,6 +196,19 @@
 			name = Localization;
 			sourceTree = "<group>";
 		};
+		B6F997CF17D03E9D004CDE4D /* kxintro */ = {
+			isa = PBXGroup;
+			children = (
+				B6F997D017D03E9D004CDE4D /* KxIntroView.h */,
+				B6F997D117D03E9D004CDE4D /* KxIntroView.m */,
+				B6F997D217D03E9D004CDE4D /* KxIntroViewController.h */,
+				B6F997D317D03E9D004CDE4D /* KxIntroViewController.m */,
+				B6F997D417D03E9D004CDE4D /* KxIntroViewPage.h */,
+				B6F997D517D03E9D004CDE4D /* KxIntroViewPage.m */,
+			);
+			path = kxintro;
+			sourceTree = "<group>";
+		};
 		C660B076C911CE06A9C6B3D8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +279,10 @@
 				C660BB9EAEE4EA6FDAE2F3D2 /* BTTSwitchTaskController.h */,
 				C660BF7EA3B45B432EAF4307 /* BTTStatisticsTaskController.m */,
 				C660BBC0160DE0B628E452E8 /* BTTStatisticsTaskController.h */,
+				B6F997D917D03F16004CDE4D /* BTTGuideViewController.h */,
+				B6F997DA17D03F16004CDE4D /* BTTGuideViewController.m */,
+				B6F997DC17D04E40004CDE4D /* BTTFirstBloodViewController.h */,
+				B6F997DD17D04E40004CDE4D /* BTTFirstBloodViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +320,7 @@
 		C660B851EA6A9796DE7771A4 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B6F997CF17D03E9D004CDE4D /* kxintro */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -548,6 +581,11 @@
 				C660BD160461216978A50524 /* BTTHorizontalSlideInsideView.m in Sources */,
 				C660B9EB5E24A805004DC0EA /* BTTStatisticsTaskController.m in Sources */,
 				C660BF722F7AE1726EB27086 /* BTTStatisticsDetailCellView.m in Sources */,
+				B6F997D617D03E9D004CDE4D /* KxIntroView.m in Sources */,
+				B6F997D717D03E9D004CDE4D /* KxIntroViewController.m in Sources */,
+				B6F997D817D03E9D004CDE4D /* KxIntroViewPage.m in Sources */,
+				B6F997DB17D03F16004CDE4D /* BTTGuideViewController.m in Sources */,
+				B6F997DE17D04E40004CDE4D /* BTTFirstBloodViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

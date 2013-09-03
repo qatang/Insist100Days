@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BTTIndexController.h"
 
 @interface BTTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) BTTIndexController *indexController;
+
 
 @end
