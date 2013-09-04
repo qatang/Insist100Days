@@ -29,6 +29,8 @@
 }
 
 - (void)firstBlood{
+//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:KEY_HAS_CREATED_TASK];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
     if (![[NSUserDefaults standardUserDefaults] boolForKey:KEY_HAS_CREATED_TASK]) {
         BTTGuideViewController *gvc = [[BTTGuideViewController alloc] initWithCustom];
         gvc.guideViewDelegate = self.indexController;

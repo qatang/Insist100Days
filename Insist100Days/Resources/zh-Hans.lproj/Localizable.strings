@@ -19,6 +19,8 @@
 "save" = "保存";
 "save success" = "保存成功！";
 "save failed" = "保存失败！";
+"delete failed" = "删除失败！";
+"current task can not be deleted" = "当前任务不能被删除！";
 "I know it" = "我知道了！";
 "checked" = "已完成！";
 "unchecked" = "未完成！";

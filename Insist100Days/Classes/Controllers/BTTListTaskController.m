@@ -11,6 +11,7 @@
 #import "BTTConfig.h"
 #import "BTTCreateTaskController.h"
 #import "BTTLogger.h"
+#import "BTTEnums.h"
 
 @interface BTTListTaskController() <UITableViewDelegate, UITableViewDataSource>
 
@@ -110,6 +111,11 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         BTTTask *b = [taskList objectAtIndex:indexPath.row];
+        if (b.current.intValue == BTT_YES) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"delete failed", nil) message:NSLocalizedString(@"current task can not be deleted", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"I know it", nil) otherButtonTitles:nil];
+            [alertView show];
+            return;
+        }
         BTTTaskDao *taskDao = [[BTTTaskDao alloc] init];
         BOOL result = [taskDao del:b];
         if (!result) {

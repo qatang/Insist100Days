@@ -167,7 +167,7 @@
 }
 
 - (void)drawView {
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 84)];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT, SCREEN_WIDTH, 84)];
 
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 4, 280, 30)];
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -182,7 +182,7 @@
     [topView addSubview:weekView];
     [topView addSubview:lineView];
 
-    UIView *middleView = [[UIView alloc] initWithFrame:CGRectMake(0, 84, SCREEN_WIDTH, SCREEN_HEIGHT - 84)];
+    UIView *middleView = [[UIView alloc] initWithFrame:CGRectMake(0, 84 + STATUS_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - 84)];
 
     UIView *middleBottomView = [[UIView alloc] initWithFrame:CGRectMake(0, middleView.bounds.size.height - 60, SCREEN_WIDTH, 60)];
 
@@ -208,7 +208,6 @@
 
 - (void)viewDidLoad {
     NSDate *now = [NSDate date];
-
     [self loadData:now];
     [self drawView];
     [self setValue:now];

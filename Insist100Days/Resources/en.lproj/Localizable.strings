@@ -19,6 +19,8 @@
 "save" = "Save";
 "save success" = "Save Successful!";
 "save failed" = "Save Failed!";
+"delete failed" = "Delete Failed!";
+"current task can not be deleted" = "Current task can not be deleted!";
 "I know it" = "I Know It!";
 "checked" = "Checked!";
 "unchecked" = "Unchecked!";
