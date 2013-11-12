@@ -54,19 +54,19 @@
     NSInteger weekday = [weekdayComponents weekday];
     switch (weekday) {
         case 1:
-            return @"星期日";
+            return NSLocalizedString(@"sunday", nil);
         case 2:
-            return @"星期一";
+            return NSLocalizedString(@"monday", nil);
         case 3:
-            return @"星期二";
+            return NSLocalizedString(@"tuesday", nil);
         case 4:
-            return @"星期三";
+            return NSLocalizedString(@"wednesday", nil);
         case 5:
-            return @"星期四";
+            return NSLocalizedString(@"thursday", nil);
         case 6:
-            return @"星期五";
+            return NSLocalizedString(@"friday", nil);
         case 7:
-            return @"星期六";
+            return NSLocalizedString(@"saturday", nil);
         default:
             return nil;
     }
